@@ -5,7 +5,7 @@ class Api::V1::InterpretersController < ApplicationController
     def index
       @interpreters = Interpreter.all
   
-      render json: @interpreters
+      render json: @interpreters, except: [:created_at, :updated_at], include: [:city, :language]
     end
   
     # GET /interpreters/1

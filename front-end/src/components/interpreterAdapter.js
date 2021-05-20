@@ -11,7 +11,8 @@ class InterpreterAdapter {
     .then(resp => resp.json())
     .then(data => {
         data.forEach(function(interpreter){
-            interpreterContainer.innerHTML += `<li>${interpreter.name} -${interpreter.language}, in ${interpreter.city}</li>`
+            interpreterContainer.innerHTML += `<li>${interpreter.name} -${interpreter.language.name}, in ${interpreter.city.name}</li>`
+            console.log(interpreter)
         })
     })
     // .then(data => console.log(data))

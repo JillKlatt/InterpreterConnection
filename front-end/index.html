@@ -4,11 +4,24 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Interpreter Connection</title>
 </head>
 <body>
     <h1>Interpreter Connection</h1>
+    <ul id="cities-container"></ul>
+        <div id='city-dropdown'></div>
+    <ul id="interpreters-container"></ul>
+    <ul id="languages-container"></ul>
 
+    <nav class="navbar navbar-light">
+        <a class="navbar-brand">
+            <button id='new-int-btn' class="navbar-toggler btn btn-secondary" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span>Add New Interpreter</span>
+              </button>
+    <script type="text/javascript" src="src/components/interpreterAdapter.js"></script>
+    <script type="text/javascript" src="src/components/cityAdapter.js"></script>
+    <script type="text/javascript" src="src/components/languageAdapter.js"></script>
     <script type="text/javascript" src="src/index.js"></script>
     
 </body>

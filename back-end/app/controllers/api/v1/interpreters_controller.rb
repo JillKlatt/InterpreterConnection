@@ -10,15 +10,15 @@ class Api::V1::InterpretersController < ApplicationController
   
     # GET /interpreters/1
     def show
-      render json: @interpreter
+      render json: @interpreter, except: [:created_at, :updated_at], include: [:city, :language]
     end
   
     # POST /interpreters
     def create
       @interpreter = Interpreter.new(interpreter_params)
-  
+      # byebug
       if @interpreter.save
-        render json: @interpreter, status: :created, location: @interpreter
+        render json: @interpreter, status: :created#, location: @interpreter
       else
         render json: @interpreter.errors, status: :unprocessable_entity
       end
@@ -35,13 +35,20 @@ class Api::V1::InterpretersController < ApplicationController
   
     # DELETE /interpreters/1
     def destroy
-      @interpreter.destroy
+      # @interpreter.destroy
+      # byebug
+      if @interpreter.destroy
+        render json: {message: "Successfully deleted"}
+      #end
+      else
+        render json: {message: "Failed to delete"}
+      end
     end
   
     private
       # Use callbacks to share common setup or constraints between actions.
       def set_interpreter
-        @interpreter = Interpreter.find(params[:id])
+        @interpreter = Interpreter.find_by(id: (params[:id]))
       end
   
       # Only allow a list of trusted parameters through.

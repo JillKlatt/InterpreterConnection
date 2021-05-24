@@ -19,7 +19,8 @@ class Interpreter {
         const deleteIntBtn = document.createElement('button')
         deleteIntBtn.innerText = "X"
         deleteIntBtn.action = 'delete'
-        interpreterContainer.innerHTML += `<li>${this.name} - ${interpreterLanguage}, in ${interpreterCity}</li> ${deleteIntBtn}`
-//* <button data-action='delete'>X</button> *//
+        interpreterContainer.innerHTML += `<li>${this.name} - ${interpreterLanguage}, in ${interpreterCity}</li> <button data-action='delete'>X</button>`
+//*  *//
+// ${deleteIntBtn}
     }
 }

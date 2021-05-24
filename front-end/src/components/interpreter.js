@@ -16,9 +16,10 @@ class Interpreter {
         // debugger
         const interpreterCity = City.all.find(city => city.id = `${this.cityId}`).name
         const interpreterLanguage = Language.all.find(language => language.id = `${this.languageId}`).name
-        // const deleteIntBtn = document.createElement('button')
-        // deleteIntBtn.innerText = "X"
-        interpreterContainer.innerHTML += `<li>${this.name} - ${interpreterLanguage}, in ${interpreterCity}<button data-action='delete'>X</button></li>`
-
+        const deleteIntBtn = document.createElement('button')
+        deleteIntBtn.innerText = "X"
+        deleteIntBtn.action = 'delete'
+        interpreterContainer.innerHTML += `<li>${this.name} - ${interpreterLanguage}, in ${interpreterCity}</li> ${deleteIntBtn}`
+//* <button data-action='delete'>X</button> *//
     }
 }

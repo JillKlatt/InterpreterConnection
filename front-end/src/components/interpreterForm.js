@@ -7,19 +7,22 @@ class InterpreterForm {
         const nameLabel = document.createElement('label')
         nameLabel.innerText = "Name:"
         const nameInput = document.createElement('input')
+        nameInput.id = 'name-input'
         nameInput.type = 'text'
         nameInput.name = 'name'
-        // const languageLabel = document.createElement('label')
-        // languageLabel.innerText = "Language:"
+        const languageLabel = document.createElement('label')
+        languageLabel.innerText = "Language:"
         // const languageInput = document.createElement('input')
+
+        const languageDropdown = document.getElementById("language-dropdown")
         // languageInput.type = 'text'
         // languageInput.name = 'language_id'
-        // const cityLabel = document.createElement('label')
-        // cityLabel.innerText = "City:"
+        const cityLabel = document.createElement('label')
+        cityLabel.innerText = "City:"
         // const cityInput = document.createElement('input')
         // cityInput.type = 'text'
         // cityInput.name = 'city_id'
-        // const cityDropdown = document.getElementById("city-dropdown")
+        const cityDropdown = document.getElementById("city-dropdown")
         // const cityInput = document.createElement('option')
         // // debugger
         // cityInput.value = City.all.forEach(city => city.name)
@@ -29,7 +32,7 @@ class InterpreterForm {
         intSubmit.type = 'submit'
         intSubmit.value = 'Create New Interpreter'
         // cityDropdown.append(cityInput)
-        form.append(nameLabel, nameInput, intSubmit)
+        form.append(nameLabel, nameInput, languageLabel, languageDropdown, cityLabel, cityDropdown, intSubmit)
         formContainer.append(form)
         form.addEventListener("submit", handleCreateInterpreter)
     }

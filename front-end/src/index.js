@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
     languageAdapter.getLanguages();
     // interpreterForm.addCreateForm();
     interpreterForm.showCreateForm();
-    interpreterAdapter.listenforDelete();
+    interpreterAdapter.listenforClick();
 })
 
 
@@ -49,12 +49,14 @@ function handleCreateInterpreter(e) {
         // } else {
         //     alert(data.errors)
         // }
-        nameInput = ""
+        // debugger
+        document.getElementById('name-input').value = ""
+        // nameInput = ""
         // languageInput = ""
         // cityInput = ""
         // debugger
     })
-    .catch(err => console.error("I'm in the catch!", err))
+    .catch(err => console.error("Catch Error:", err))
 }
     // debugger
 

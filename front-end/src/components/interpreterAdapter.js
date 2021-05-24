@@ -19,17 +19,6 @@ class InterpreterAdapter {
     .catch(error => console.error(error))
 }
 
-    // listenforDelete() {
-    //     interpreterContainer.addEventListener('click', handleDelete)
-    // }
-
-    // handleDelete(e) {
-    //     if (e.target.dataset.action == 'delete'){
-    //         console.log("DELETE SOMETHING")
-    //     } else {
-    //     console.log("nope")
-    //     }
-    // }
 
     listenforDelete() {
         interpreterContainer.addEventListener('click', handleDelete)

@@ -1,5 +1,10 @@
 class InterpreterForm {
 
+    showCreateForm() {
+        const btn = document.getElementById('new-int-btn')
+        btn.addEventListener('click', this.addCreateForm)
+    }
+
     addCreateForm() {
         const formContainer = document.getElementById("form-container");
         const form = document.createElement('form');
@@ -37,10 +42,7 @@ class InterpreterForm {
         form.addEventListener("submit", handleCreateInterpreter)
     }
     
-    showCreateForm() {
-        const btn = document.getElementById('new-int-btn')
-        btn.addEventListener('click', addCreateForm)
-    }
+  
 
      handleDelete(e) {
         const id = e.target.previousElementSibling.dataset.id

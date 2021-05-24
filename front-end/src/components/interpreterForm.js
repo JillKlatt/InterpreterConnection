@@ -47,7 +47,7 @@ class InterpreterForm {
   
 
      handleInterpreterClick(e) {
-        const id = e.target.previousElementSibling.dataset.id
+        const id = parseInt(e.target.previousElementSibling.dataset.set)
         const li = e.target.previousElementSibling
         // debugger
         const btn = e.target
@@ -57,8 +57,10 @@ class InterpreterForm {
             switch(action){ 
            // if (e.target.dataset.action == 'delete'){
                 case "delete": 
+                console.log("deleting")
                     // debugger
                     // delete this interpreter from backend
+                    // debugger
                     fetch(`http://localhost:3000/api/v1/interpreters/${id}`, {
                     // console.log(id)
                     method: "DELETE",

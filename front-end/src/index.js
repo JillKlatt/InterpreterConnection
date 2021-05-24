@@ -7,7 +7,8 @@ document.addEventListener("DOMContentLoaded", () => {
     interpreterAdapter.getInterpreters();
     cityAdapter.getCities();
     languageAdapter.getLanguages();
-    interpreterForm.addCreateForm();
+    // interpreterForm.addCreateForm();
+    interpreterForm.showCreateForm();
     interpreterAdapter.listenforDelete();
 })
 

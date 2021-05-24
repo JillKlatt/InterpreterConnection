@@ -20,6 +20,7 @@ class InterpreterForm {
         // const languageInput = document.createElement('input')
 
         const languageDropdown = document.getElementById("language-dropdown")
+        // const languageDropdown = document.createElement("language-dropdown")
         // languageInput.type = 'text'
         // languageInput.name = 'language_id'
         const cityLabel = document.createElement('label')
@@ -28,6 +29,7 @@ class InterpreterForm {
         // cityInput.type = 'text'
         // cityInput.name = 'city_id'
         const cityDropdown = document.getElementById("city-dropdown")
+        //const cityDropdown = document.getElementById("city-dropdown")
         // const cityInput = document.createElement('option')
         // // debugger
         // cityInput.value = City.all.forEach(city => city.name)

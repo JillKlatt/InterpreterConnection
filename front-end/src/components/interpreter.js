@@ -13,6 +13,12 @@ class Interpreter {
     addIntToDom() {
         // debugger
         const interpreterContainer = document.getElementById('interpreters-container');
-        interpreterContainer.innerHTML += `<li>${this.name}</li>`// -${this.language}, in ${this.city.name}</li>`
+        // debugger
+        const interpreterCity = City.all.find(city => city.id = `${this.cityId}`).name
+        const interpreterLanguage = Language.all.find(language => language.id = `${this.languageId}`).name
+        // const deleteIntBtn = document.createElement('button')
+        // deleteIntBtn.innerText = "X"
+        interpreterContainer.innerHTML += `<li>${this.name} - ${interpreterLanguage}, in ${interpreterCity}<button data-action='delete'>X</button></li>`
+
     }
 }

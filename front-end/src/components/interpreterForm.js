@@ -46,48 +46,67 @@ class InterpreterForm {
     
   
 
-     handleDelete(e) {
+     handleInterpreterClick(e) {
         const id = e.target.previousElementSibling.dataset.id
         const li = e.target.previousElementSibling
         // debugger
         const btn = e.target
-        console.log(e.target)
-            if (e.target.dataset.action == 'delete'){
-                // debugger
-                // delete this interpreter from backend
-                fetch(`http://localhost:3000/api/v1/interpreters/${id}`, {
-                // console.log(id)
-                method: "DELETE",
-                })
-                .then(resp => {
-         
-                    console.log(resp)
-                    return resp.json()
-                })
-                .then(data => {
+        const likeBtn = e.target.nextElementSibling
+        const action = e.target.dataset.action
+        // console.log(e.target)
+            switch(action){ 
+           // if (e.target.dataset.action == 'delete'){
+                case "delete": 
                     // debugger
-                    // if (data.status === 204) {
-                        // e.target.previousElementSibling.dataset.remove
-                    // }
-                    // console.log(data)
-                    // debugger
-                    if (data.message === "Successfully deleted"){
-                        console.log(li)
-                        li.remove()
-                        btn.remove()
-                        // const toRemove = document.getElementById(`data-id=${id}`)
-                        // console.log(toRemove)
-                        // e.target.previousElementSibling.dataset.remove()
-                        // const interpreterContainer = document.getElementById("interpreters-container")
-                        // interpreterContainer.getInterpreters
-    
-                    } else {
-                        alert(data.message)
-                    }
-    
-                })
+                    // delete this interpreter from backend
+                    fetch(`http://localhost:3000/api/v1/interpreters/${id}`, {
+                    // console.log(id)
+                    method: "DELETE",
+                    })
+                    .then(resp => {
+            
+                        console.log(resp)
+                        return resp.json()
+                    })
+                    .then(data => {
+                        // debugger
+                        // if (data.status === 204) {
+                            // e.target.previousElementSibling.dataset.remove
+                        // }
+                        // console.log(data)
+                        // debugger
+                        if (data.message === "Successfully deleted"){
+                            console.log(li)
+                            li.remove()
+                            btn.remove()
+                            likeBtn.remove()
+                            // const toRemove = document.getElementById(`data-id=${id}`)
+                            // console.log(toRemove)
+                            // e.target.previousElementSibling.dataset.remove()
+                            // const interpreterContainer = document.getElementById("interpreters-container")
+                            // interpreterContainer.getInterpreters
+        
+                        } else {
+                            alert(data.message)
+                        }})
+                    break;
+                
+                case 'favorite':
+
+                    break;
+
+                // case 'favorite':
+                //     console.log("favorite")
+                //     break;
+
+                //     }    
+                
         
                 // .catch(err => console.error(err))
         }
     }
+
+    // handleFavorite(e) {
+    //     console.log(e.target)
+    // }
 }

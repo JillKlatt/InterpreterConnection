@@ -11,7 +11,7 @@ class InterpreterAdapter {
     .then(resp => resp.json())
     .then(data => {
         data.forEach(function(interpreter){
-            interpreterContainer.innerHTML += `<li data-id="${interpreter.id}">${interpreter.name} -${interpreter.language.name}, in ${interpreter.city.name}</li><button data-action='delete'>X</button>`
+            interpreterContainer.innerHTML += `<li data-id="${interpreter.id}">${interpreter.name} -${interpreter.language.name}, in ${interpreter.city.name}</li><button data-action='delete'>X</button><button data-action='favorite'>&#9829;</button>`
             // console.log(interpreter)
         })
     })
@@ -21,7 +21,7 @@ class InterpreterAdapter {
 
 
     listenforDelete() {
-        interpreterContainer.addEventListener('click', interpreterForm.handleDelete)
+        interpreterContainer.addEventListener('click', interpreterForm.handleInterpreterClick)
     }
     
     // handleDelete(e) {
@@ -66,6 +66,15 @@ class InterpreterAdapter {
         
     //             // .catch(err => console.error(err))
     //     }
+    // }
+
+    
+    // listenforDelete() {
+    //     interpreterContainer.addEventListener('click', interpreterForm.handleDelete)
+    // }
+
+    // handleFavorite(e) {
+    //     console.log(e.target)
     // }
 }
 

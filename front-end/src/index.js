@@ -15,10 +15,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function handleCreateInterpreter(e) {
     e.preventDefault()
-    let nameInput = e.target.children[1].value
+    // debugger
+    // let nameInput = e.target.children[1].value
+    let nameInput = document.getElementById('name-input').value
     let languageInput = e.target.children[3].value
     let cityInput = e.target.children[5].value
-    // debugger
+
 
     // Acquired the input of our user, now send it to the backend
     fetch("http://localhost:3000/api/v1/interpreters", {
@@ -47,8 +49,9 @@ function handleCreateInterpreter(e) {
         //     alert(data.errors)
         // }
         nameInput = ""
-        languageInput = ""
-        cityInput = ""
+        // languageInput = ""
+        // cityInput = ""
+        // debugger
     })
     .catch(err => console.error("I'm in the catch!", err))
 }

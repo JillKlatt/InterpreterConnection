@@ -24,16 +24,18 @@ class City {
 
         // debugger
 
-        citAdapter.getCities()
+        cityAdapter.getCities()
         // debugger
         cityInput.value = this.id
         cityInput.innerText = this.name
         // cityInput.value = City.all.forEach(city => city.name)
         // cityInput.innerText = City.all.forEach(city => city.id)
+        //debugger
+        const form = document.getElementById("int-form")
         // debugger
-        const form = document.getElementById("form-container")
         form.append(cityDropdown)
         cityDropdown.append(cityInput)
+        // debugger
     }
 
 }

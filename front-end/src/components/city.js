@@ -14,6 +14,7 @@ class City {
         cityInput.innerText = this.name
         // cityInput.value = City.all.forEach(city => city.name)
         // cityInput.innerText = City.all.forEach(city => city.id)
+        // debugger
         cityDropDown.append(cityInput)
     }
 

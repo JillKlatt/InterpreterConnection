@@ -2,7 +2,6 @@
 
 const langAdapter = new LanguageAdapter("http://localhost:3000")
 const citAdapter = new CityAdapter("http://localhost:3000")
-const allLang = Language.all
 
 class InterpreterForm {
 
@@ -29,10 +28,12 @@ class InterpreterForm {
         // const languageInput = document.createElement('input')
 
         //const languageDropdown = document.getElementById("language-dropdown")
+        // const languageDropdown = document.createElement("select")
+        // languageDropdown.id = "language-dropdown"
+        // languageDropdown.name = "language"
         const languageDropdown = document.createElement("select")
         languageDropdown.id = "language-dropdown"
-        languageDropdown.name = "language"
-        langAdapter.getLanguages()
+        // langAdapter.getLanguages()
         // debugger
 
         // languageInput.type = 'text'
@@ -60,18 +61,18 @@ class InterpreterForm {
         intSubmit.type = 'submit'
         intSubmit.value = 'Create New Interpreter'
         // cityDropdown.append(cityInput)
-        form.append(nameLabel, nameInput, languageLabel, languageDropdown, cityLabel, ) //cityDropdown,
+        form.append(nameLabel, nameInput, languageLabel ) //cityDropdown,languageDropdown, 
         // allLang.forEach(language => language.addLanguageToDom())
         // City.all.forEach(city => city.addCityToDom())
         formContainer.append(form)
-        form.addEventListener("submit", handleCreateInterpreter)
-        // debugger
-        City.all.forEach(city => city.addCityToDom())
-        form.append(intSubmit)
-    }
 
-    fillCities() {
+        // debugger
+        Language.all.forEach(language => language.addLanguageToDom())
+        form.append(cityLabel)
         City.all.forEach(city => city.addCityToDom())
+
+        form.append(intSubmit)
+        form.addEventListener("submit", handleCreateInterpreter)
     }
 
 

@@ -2,6 +2,8 @@ class InterpreterForm {
 
     showCreateForm() {
         const btn = document.getElementById('new-int-btn')
+        // const intForm = document.getElementById("form-container")
+        // intForm.innerHTML = ""
         btn.addEventListener('click', this.addCreateForm)
     }
 

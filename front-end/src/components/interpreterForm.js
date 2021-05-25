@@ -1,3 +1,7 @@
+
+
+const langAdapter = new LanguageAdapter("http://localhost:3000")
+
 class InterpreterForm {
 
     showCreateForm() {
@@ -21,8 +25,11 @@ class InterpreterForm {
         languageLabel.innerText = "Language:"
         // const languageInput = document.createElement('input')
 
-        const languageDropdown = document.getElementById("language-dropdown")
-        // const languageDropdown = document.createElement("language-dropdown")
+        //const languageDropdown = document.getElementById("language-dropdown")
+        const languageDropdown = document.createElement("select")
+        languageDropdown.id = "language-dropdown"
+        languageDropdown.name = "language"
+        langAdapter.getLanguages()
         // languageInput.type = 'text'
         // languageInput.name = 'language_id'
         const cityLabel = document.createElement('label')

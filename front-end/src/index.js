@@ -4,9 +4,12 @@ const languageAdapter = new LanguageAdapter("http://localhost:3000")
 const interpreterForm = new InterpreterForm
 
 document.addEventListener("DOMContentLoaded", () => {
-    interpreterAdapter.getInterpreters();
     cityAdapter.getCities();
-    //languageAdapter.getLanguages();
+
+    languageAdapter.getLanguages(); 
+    
+    interpreterAdapter.getInterpreters();
+// debugger
     // interpreterForm.addCreateForm();
     interpreterForm.showCreateForm();
     interpreterAdapter.listenforClick();

@@ -32,7 +32,8 @@ class InterpreterForm {
         languageDropdown.id = "language-dropdown"
         languageDropdown.name = "language"
         langAdapter.getLanguages()
-        allLang.forEach(language => language.addLangToDom())
+        // debugger
+
         // languageInput.type = 'text'
         // languageInput.name = 'language_id'
         const cityLabel = document.createElement('label')
@@ -43,9 +44,11 @@ class InterpreterForm {
         // const cityDropdown = document.getElementById("city-dropdown")
         const cityDropdown = document.createElement("select")
         cityDropdown.id = "city-dropdown"
-        cityDropdown.name = "city"
-        citAdapter.getCities()
-        City.all.forEach(city => city.addLangToDom())
+        // cityDropdown.name = "city"
+        // citAdapter.getCities()
+        // debugger
+
+
         //const cityDropdown = document.getElementById("city-dropdown")
         // const cityInput = document.createElement('option')
         // // debugger
@@ -56,12 +59,19 @@ class InterpreterForm {
         intSubmit.type = 'submit'
         intSubmit.value = 'Create New Interpreter'
         // cityDropdown.append(cityInput)
-        form.append(nameLabel, nameInput, languageLabel, languageDropdown, cityLabel, cityDropdown, intSubmit)
+        form.append(nameLabel, nameInput, languageLabel, languageDropdown, cityLabel, intSubmit) //cityDropdown,
+        // allLang.forEach(language => language.addLanguageToDom())
+        // City.all.forEach(city => city.addCityToDom())
         formContainer.append(form)
         form.addEventListener("submit", handleCreateInterpreter)
+        // debugger
+        City.all.forEach(city => city.addCityToDom())
     }
-    
-  
+
+    fillCities() {
+        City.all.forEach(city => city.addCityToDom())
+    }
+
 
      handleInterpreterClick(e) {
         const id = parseInt(e.target.previousElementSibling.dataset.set)

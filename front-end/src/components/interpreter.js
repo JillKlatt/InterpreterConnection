@@ -24,6 +24,7 @@ class Interpreter {
 
         interpreterContainer.innerHTML += `<li data-set=${dataId}>${this.name} - ${interpreterLanguage}, in ${interpreterCity}</li><button data-action='delete'>X</button><button data-action='favorite'>&#9829;</button>`
 //*  *//
+//<button data-action='edit'>E</button>
 // ${deleteIntBtn}
     }
 

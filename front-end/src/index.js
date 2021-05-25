@@ -18,6 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 function handleCreateInterpreter(e) {
+    // debugger
     e.preventDefault()
     // debugger
     // let nameInput = e.target.children[1].value

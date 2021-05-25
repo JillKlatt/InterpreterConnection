@@ -15,6 +15,7 @@ addLanguageToDom(){
     languageInput.innerText = this.name
     // languageInput.value = language.all.forEach(language => language.name)
     // languageInput.innerText = language.all.forEach(language => language.id)
+    debugger
     languageDropDown.append(languageInput)
 }
 }

@@ -1,6 +1,7 @@
 
 
 const langAdapter = new LanguageAdapter("http://localhost:3000")
+const citAdapter = new CityAdapter("http://localhost:3000")
 
 class InterpreterForm {
 
@@ -37,7 +38,11 @@ class InterpreterForm {
         // const cityInput = document.createElement('input')
         // cityInput.type = 'text'
         // cityInput.name = 'city_id'
-        const cityDropdown = document.getElementById("city-dropdown")
+        // const cityDropdown = document.getElementById("city-dropdown")
+        const cityDropdown = document.createElement("select")
+        cityDropdown.id = "city-dropdown"
+        cityDropdown.name = "city"
+        citAdapter.getCities()
         //const cityDropdown = document.getElementById("city-dropdown")
         // const cityInput = document.createElement('option')
         // // debugger

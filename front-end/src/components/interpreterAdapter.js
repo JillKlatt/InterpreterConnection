@@ -10,8 +10,10 @@ class InterpreterAdapter {
     fetch(this.baseIntURL)
     .then(resp => resp.json())
     .then(data => {
-        data.forEach(function(interpreter){
+        data.forEach(interpreter => {
+            // debugger
             const i = new Interpreter(interpreter)
+
             i.addIntToDom()
             //interpreterContainer.innerHTML += `<li data-id="${interpreter.id}">${interpreter.name} -${interpreter.language.name}, in ${interpreter.city.name}</li><button data-action='delete'>X</button><button data-action='favorite'>&#9829;</button>`
             // console.log(interpreter)

@@ -16,6 +16,7 @@ class InterpreterForm {
     addCreateForm() {
         const formContainer = document.getElementById("form-container");
         const form = document.createElement('form');
+        form.id = "int-form"
         // form.innerHTML = `<input placehold='name' name='name' label='name' type='text' /><br><input placehold='email' name= 'email' type='text' /><br><input value='Add New Interpreter' type='submit' />`
         const nameLabel = document.createElement('label')
         nameLabel.innerText = "Name:"
@@ -59,13 +60,14 @@ class InterpreterForm {
         intSubmit.type = 'submit'
         intSubmit.value = 'Create New Interpreter'
         // cityDropdown.append(cityInput)
-        form.append(nameLabel, nameInput, languageLabel, languageDropdown, cityLabel, intSubmit) //cityDropdown,
+        form.append(nameLabel, nameInput, languageLabel, languageDropdown, cityLabel, ) //cityDropdown,
         // allLang.forEach(language => language.addLanguageToDom())
         // City.all.forEach(city => city.addCityToDom())
         formContainer.append(form)
         form.addEventListener("submit", handleCreateInterpreter)
         // debugger
         City.all.forEach(city => city.addCityToDom())
+        form.append(intSubmit)
     }
 
     fillCities() {

@@ -6,7 +6,7 @@ const interpreterForm = new InterpreterForm
 document.addEventListener("DOMContentLoaded", () => {
     interpreterAdapter.getInterpreters();
     cityAdapter.getCities();
-    languageAdapter.getLanguages();
+    //languageAdapter.getLanguages();
     // interpreterForm.addCreateForm();
     interpreterForm.showCreateForm();
     interpreterAdapter.listenforClick();

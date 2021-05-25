@@ -2,6 +2,7 @@
 
 const langAdapter = new LanguageAdapter("http://localhost:3000")
 const citAdapter = new CityAdapter("http://localhost:3000")
+const allLang = Language.all
 
 class InterpreterForm {
 
@@ -31,6 +32,7 @@ class InterpreterForm {
         languageDropdown.id = "language-dropdown"
         languageDropdown.name = "language"
         langAdapter.getLanguages()
+        allLang.forEach(language => language.addLangToDom())
         // languageInput.type = 'text'
         // languageInput.name = 'language_id'
         const cityLabel = document.createElement('label')
@@ -43,6 +45,7 @@ class InterpreterForm {
         cityDropdown.id = "city-dropdown"
         cityDropdown.name = "city"
         citAdapter.getCities()
+        City.all.forEach(city => city.addLangToDom())
         //const cityDropdown = document.getElementById("city-dropdown")
         // const cityInput = document.createElement('option')
         // // debugger

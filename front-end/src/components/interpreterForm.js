@@ -94,6 +94,41 @@ class InterpreterForm {
                             alert(data.message)
                         }})
                     break;
+
+                // case 'edit':
+                //     console.log("editing")
+                //     let nameInput = document.getElementById('name-input').value
+                //     // debugger
+                //     // edit and post this interpreter from backend
+                //     // debugger
+                //     fetch(`http://localhost:3000/api/v1/interpreters/${id}`, {
+                //     // console.log(id)
+                //     method: "PATCH",
+                //     headers: {
+                //         "Content-Type": "application/json",
+                //         "Accept": "application/json"
+                //     },
+                //     body: JSON.stringify({
+                //         name: nameInput
+                //     })
+                //     })
+                //     .then(resp => {
+            
+                //         console.log(resp)
+                //         return resp.json()
+                //     })
+                //     .then(data => {
+                //         // debugger
+                //         console.log(data)
+                //         // debugger
+                //         // if (data.status === 201){
+                //             const i = new Interpreter(data)
+                //             // debugger
+                //             i.addIntToDom()})
+                //     .catch(err => console.error("Catch Error:", err))
+
+
+                    break;
                 
                 case 'favorite':
 

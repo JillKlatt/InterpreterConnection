@@ -13,7 +13,7 @@ class Interpreter {
     addIntToDom() {
         // debugger
         const interpreterContainer = document.getElementById('interpreters-container');
-        // debugger
+        //debugger
         const interpreterCity = City.all.find(city => city.id = `${this.cityId}`).name
         const interpreterLanguage = Language.all.find(language => language.id = `${this.languageId}`).name
         const dataId = this.id

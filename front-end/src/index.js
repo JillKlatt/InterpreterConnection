@@ -13,6 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
     interpreterForm.showCreateForm();
     interpreterAdapter.listenforClick();
     listenForFavorites();
+    listenforFaveClick();
 })
 
 
@@ -77,9 +78,24 @@ function displayFavoritesContainer(e) {
 
 function displayFavorites(fave){
     const ul = document.createElement("ul")
-    ul.innerText += Interpreter.all.find(int => int.id === fave).name
-    const favoritesContainer = document.getElementById("favorite-interpreters-container")
+    let int = Interpreter.all.find(int => int.id === fave)
+    ul.id = int.id
+    ul.innerText += int.name
+    const favoritesContainer = document.getElementById("favorites-container")
     favoritesContainer.append(ul)
-
 }
+
+function listenforFaveClick() {
+    const ul = document.getElementById("favorites-container")
+    ul.addEventListener("click", displayIntInfo)
+    //.addEventListener("click", displayFavoritesContainer)
+}
+
+function displayIntInfo(e){
+    // console.log(e.target)
+    // debugger
+    let int = Interpreter.all.find(int => int.id === parseInt(e.target.id))
+    console.log(int)
+}
+
     

@@ -202,27 +202,27 @@ class InterpreterForm {
                     const ul = document.createElement("ul")
         
                     // debugger
-                    let int = Interpreter.all.find(int => int.id === addId)
-                    ul.id = int.id
-                    ul.innerText = int.name
-                    let infoDiv = document.createElement("div")
-                    infoDiv.id = "info-div"
-                    const email = document.createElement("li")
-                    email.innerText = int.email
-                    const phone = document.createElement("li")
-                    phone.innerText = int.phone
-                    const notes = document.createElement("li")
-                    notes.innerText = int.notes
-                    infoDiv.append(email, phone, notes)
-                    infoDiv.classList.add("hidden")
-                    ul.appendChild(infoDiv)
-                    favoritesContainer.append(ul)
-                    console.log(`Adding ${intName} to favorites`)
-                    alert(`Added ${intName} to favorites`)
-                        // debugger
-                    favorites.push(addId)
-                    // debugger                    
-                    localStorage.setItem("favorites", JSON.stringify(favorites))
+                    // let int = Interpreter.all.find(int => int.id === addId)
+                    // ul.id = int.id
+                    // ul.innerText = int.name
+                    // let infoDiv = document.createElement("div")
+                    // infoDiv.id = "info-div"
+                    // const email = document.createElement("li")
+                    // email.innerText = int.email
+                    // const phone = document.createElement("li")
+                    // phone.innerText = int.phone
+                    // const notes = document.createElement("li")
+                    // notes.innerText = int.notes
+                    // infoDiv.append(email, phone, notes)
+                    // infoDiv.classList.add("hidden")
+                    // ul.appendChild(infoDiv)
+                    // favoritesContainer.append(ul)
+                    // console.log(`Adding ${intName} to favorites`)
+                    // alert(`Added ${intName} to favorites`)
+                    //     // debugger
+                    // favorites.push(addId)
+                    // // debugger                    
+                    // localStorage.setItem("favorites", JSON.stringify(favorites))
               
 
                     break;   

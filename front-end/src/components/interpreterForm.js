@@ -193,10 +193,30 @@ class InterpreterForm {
 
                     // const intName = Interpreter.all.find(int => int.id === addId).name
                     const intName = e.target.previousElementSibling.previousElementSibling.children[0].innerText
-
+                    
 
                     // Add conditional to see if favorite exists? Or I guess just toggle between favorite and not?
                     // debugger
+
+                    const favoritesContainer = document.getElementById("favorites-container")
+                    const ul = document.createElement("ul")
+        
+                    // debugger
+                    let int = Interpreter.all.find(int => int.id === addId)
+                    ul.id = int.id
+                    ul.innerText = int.name
+                    let infoDiv = document.createElement("div")
+                    infoDiv.id = "info-div"
+                    const email = document.createElement("li")
+                    email.innerText = int.email
+                    const phone = document.createElement("li")
+                    phone.innerText = int.phone
+                    const notes = document.createElement("li")
+                    notes.innerText = int.notes
+                    infoDiv.append(email, phone, notes)
+                    infoDiv.classList.add("hidden")
+                    ul.appendChild(infoDiv)
+                    favoritesContainer.append(ul)
                     console.log(`Adding ${intName} to favorites`)
                     alert(`Added ${intName} to favorites`)
                         // debugger

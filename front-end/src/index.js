@@ -127,9 +127,9 @@ function displayFavorites(fave){
 
 function listenforFaveClick() {
     const ul = document.getElementById("favorites-container")
-    let faveArray = favorites.forEach(fave => displayFavorites(fave))
-    debugger
-    ul.append(faveArray)
+    // favorites.forEach(fave => displayFavorites(fave))
+    //right here: we don't have any favorites to display
+    // debugger
     ul.addEventListener("click", displayIntInfo)
 }
 

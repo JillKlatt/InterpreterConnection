@@ -5,33 +5,38 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="stylesheets/application.css">
     <title>Interpreter Connection</title>
 </head>
 <body>
     <h1>Interpreter Connection</h1>
+    <button id="display-favorites">Show My Faves</button>
+    <!--
     <ul id="cities-container"></ul>
     <ul id="languages-container"></ul>
+    <div id='all-interpreters-container'>
+    -->
+        <ul id="interpreters-container">
+    </div>
+    <div id='favorite-interpreters-container' class="hidden">
+      <div id="favories-container">
+        Favorite Interpreters:
+        (## click to show more info?)
+      </div>
 
-    <ul id="interpreters-container"></ul>
+    </div>
 
-            <button id='new-int-btn' class="btn btn-primary" type="button" >
-                <span>Add New Interpreter</span>
-              </button>
- 
+                <button id='new-int-btn' class="btn btn-primary" type="button" >
+                    <span>Add New Interpreter</span>
+                  </button>
+    
 
+
+                </div>
+            <div id= "form-container">
 
             </div>
-        <div id= "form-container">
-               <!-- <label for="city">City:</label> -->
-     <!--
-                <select name="city" id="city-dropdown">
-     
-                </select> 
-             <label for="language">Language:</label> 
-                <select name="language" id="language-dropdown">
-     
-                </select>-->
-        </div>
+          </div>
         <br>
         <br>        <br>
         <br>

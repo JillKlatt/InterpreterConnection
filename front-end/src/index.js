@@ -26,6 +26,8 @@ function handleCreateInterpreter(e) {
     let languageInput = e.target.children[3].value
     let cityInput = e.target.children[5].value
     let emailInput = document.getElementById("email-input").value
+    let phoneInput = document.getElementById("phone-input").value
+    let notesInput = document.getElementById("notes-input").value
     // debugger
 
 
@@ -40,7 +42,9 @@ function handleCreateInterpreter(e) {
             name: nameInput,
             language_id: languageInput,
             city_id: cityInput,
-            email: emailInput
+            email: emailInput,
+            phone: phoneInput,
+            notes: notesInput
         })   
     })
     .then(resp => resp.json())

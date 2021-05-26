@@ -162,13 +162,19 @@ class InterpreterForm {
                     // debugger
 
                     const addId = parseInt(e.target.previousElementSibling.previousElementSibling.dataset.set)
-                    const intName = Interpreter.all.find(int => int.id === addId).name
-                    localStorage.setItem("favorites", JSON.stringify(favorites))
-                    // let favorites = JSON.parse(localStorage.getItem("favorites")) || []
+
+                    // const intName = Interpreter.all.find(int => int.id === addId).name
+                    const intName = e.target.previousElementSibling.previousElementSibling.children[0].innerText
+
+
+                    // Add conditional to see if favorite exists? Or I guess just toggle between favorite and not?
+                    // debugger
                     console.log(`Adding ${intName} to favorites`)
+                    alert(`Added ${intName} to favorites`)
                         // debugger
                     favorites.push(addId)
-                    // debugger
+                    // debugger                    
+                    localStorage.setItem("favorites", JSON.stringify(favorites))
               
 
                     break;   

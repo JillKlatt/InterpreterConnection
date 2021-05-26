@@ -127,36 +127,78 @@ function displayFavoritesContainer(e) {
 
 function listenforFaveClick() {
     const ul = document.getElementById("favorites-container")
+    const showMoreBtn = document.getElementById("show-more-button")
     // favorites.forEach(fave => displayFavorites(fave))
     //right here: we don't have any favorites to display
     // debugger
-    ul.addEventListener("click", displayIntInfo)
+    ul.addEventListener("click", displayPopUp)
 }
 
-function displayIntInfo(e){
-    const btn = e.target
-    let infoDiv = document.getElementById("info-div")
-    // Still appending this info every time
+function displayPopUp(e) {
+    if (e.target = "show-more-button"){
+    const favoritesContainer = document.getElementById("favorites-container")
+    console.log("displaying pop up")
+    const modal = document.createElement("div")
 
-   //e.target.append(infoDiv)
-    //console.log(int)
+    modal.className = "modal"
+    modal.id = "show-modal"
+    modal.tabindex = "-1"
+    modal.role = "dialog"
+    const modalDialog = document.createElement("div")
+    modalDialog.setAttribute("class", "modal-dialog")
+    modalDialog.role = "document"
+    const modalContent = document.createElement("div")
+    modalContent.className = "modal-content"
+    const modalHeader = document.createElement('div')
+    modalHeader.className = "modal-title"
+    const modalTitle = document.createElement("h5")
+    modalTitle.className = "modal-title"
+    modalTitle.innerText = "Pop Up Test"
 
-    switch (displayingInfo){
-        case true: 
-        console.log("showing info")
-            infoDiv.classList.remove("hidden")
-            displayingInfo = false
-            break;
+    // const closeBtn = document.createElement("button")
+    // closeBtn.type = "button"
+    // closeBtn.id = "close-int-button"
+    // closeBtn.setAttribute("class", "close")
+    // closeBtn.setAttribute("data-dismiss", "modal")
+    // closeBtn.setAttribute("aria-label", "Close")
 
-        case false:
-            console.log("hiding info")
-            // let infoDisplay = document.getElementById("info-div")
-            // infoDisplay.classList.add("hidden")
-            // debugger
-            infoDiv.classList.add("hidden")
-            displayingInfo = true
-            break;
+    const span = document.createElement("span")
+    //span.setAttribute("aria-hidden", "true")
+
+    //closeBtn.append(span)
+    modalHeader.append(modalTitle, span)//, closeBtn)
+    modalContent.append(modalHeader)
+    modalDialog.append(modalContent)
+    modal.append(modalDialog)
+    favoritesContainer.append(modal)
+    // debugger
     }
 }
+
+// function displayIntInfo(e){
+//     const btn = e.target
+//     let infoDiv = document.getElementById("info-div")
+//     // Still appending this info every time
+
+//    //e.target.append(infoDiv)
+//     //console.log(int)
+
+//     switch (displayingInfo){
+//         case true: 
+//         console.log("showing info")
+//             infoDiv.classList.remove("hidden")
+//             displayingInfo = false
+//             break;
+
+//         case false:
+//             console.log("hiding info")
+//             // let infoDisplay = document.getElementById("info-div")
+//             // infoDisplay.classList.add("hidden")
+//             // debugger
+//             infoDiv.classList.add("hidden")
+//             displayingInfo = true
+//             break;
+//     }
+
 
     

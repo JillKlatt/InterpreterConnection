@@ -83,7 +83,7 @@ function displayFavoritesContainer(e) {
     const btn = e.target
     const favoritesContainer = document.getElementById("favorite-interpreters-container")
     // debugger
-    // favorites.forEach(fave => displayFavorites(fave))
+    favorites.forEach(fave => displayFavorites(fave))
     switch (displayingFavorites) {
         case true:
             console.log("Showing Favorites")
@@ -136,8 +136,9 @@ function listenforFaveClick() {
 function displayIntInfo(e){
     const btn = e.target
     let infoDiv = document.getElementById("info-div")
+    // Still appending this info every time
 
-    e.target.append(infoDiv)
+   //e.target.append(infoDiv)
     //console.log(int)
 
     switch (displayingInfo){

@@ -25,6 +25,8 @@ function handleCreateInterpreter(e) {
     let nameInput = document.getElementById('name-input').value
     let languageInput = e.target.children[3].value
     let cityInput = e.target.children[5].value
+    let emailInput = document.getElementById("email-input").value
+    // debugger
 
 
     // Acquired the input of our user, now send it to the backend
@@ -37,7 +39,8 @@ function handleCreateInterpreter(e) {
         body: JSON.stringify({
             name: nameInput,
             language_id: languageInput,
-            city_id: cityInput
+            city_id: cityInput,
+            email: emailInput
         })   
     })
     .then(resp => resp.json())
@@ -95,6 +98,10 @@ function displayIntInfo(e){
     // console.log(e.target)
     // debugger
     let int = Interpreter.all.find(int => int.id === parseInt(e.target.id))
+    const li = document.createElement("li")
+    li.innerText += int.email
+    //const int = document.createElement("li")
+    e.target.append(li)
     console.log(int)
 }
 

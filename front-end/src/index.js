@@ -12,6 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
     interpreterAdapter.getInterpreters();
     interpreterForm.showCreateForm();
     interpreterAdapter.listenforClick();
+    listenForFavorites();
 })
 
 
@@ -51,5 +52,34 @@ function handleCreateInterpreter(e) {
         document.getElementById('name-input').value = ""
     })
     .catch(err => console.error("Catch Error:", err))
+}
+
+
+
+function listenForFavorites() {
+    document.getElementById("display-favorites").addEventListener("click", displayFavoritesContainer)
+}
+
+function displayFavoritesContainer(e) {
+    const btn = e.target
+
+    btn.innerText = "Hide My Faves"
+    const favoritesContainer = document.getElementById("favorite-interpreters-container")
+    // debugger
+    favoritesContainer.classList.remove("hidden")
+    // debugger
+    //let favoritesArray = 
+    favorites.forEach(fave => displayFavorites(fave))
+    // debugger
+    //ul.innerText = favoritesArray
+    // favoritesContainer.append(ul)
+}
+
+function displayFavorites(fave){
+    const ul = document.createElement("ul")
+    ul.innerText += Interpreter.all.find(int => int.id === fave).name
+    const favoritesContainer = document.getElementById("favorite-interpreters-container")
+    favoritesContainer.append(ul)
+
 }
     

@@ -104,6 +104,8 @@ function displayIntInfo(e){
     let int = Interpreter.all.find(int => int.id === parseInt(e.target.id))
     const li = document.createElement("li")
     li.innerText += int.email
+    li.innerText += int.phone
+    li.innerText += int.notes
     //const int = document.createElement("li")
     e.target.append(li)
     console.log(int)

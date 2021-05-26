@@ -2,6 +2,7 @@ const interpreterAdapter = new InterpreterAdapter("http://localhost:3000")
 const cityAdapter = new CityAdapter("http://localhost:3000")
 const languageAdapter = new LanguageAdapter("http://localhost:3000")
 const interpreterForm = new InterpreterForm
+let favorites = parseInt(localStorage.getItem("favorites"))|| []
 
 document.addEventListener("DOMContentLoaded", () => {
     cityAdapter.getCities();

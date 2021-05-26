@@ -159,14 +159,19 @@ class InterpreterForm {
                     break;
                 
                 case 'favorite':
+                    // debugger
 
-                    break;
+                    const addId = parseInt(e.target.previousElementSibling.previousElementSibling.dataset.set)
+                    const intName = Interpreter.all.find(int => int.id === addId).name
+                    localStorage.setItem("favorites", JSON.stringify(favorites))
+                    // let favorites = JSON.parse(localStorage.getItem("favorites")) || []
+                    console.log(`Adding ${intName} to favorites`)
+                        // debugger
+                    favorites.push(addId)
+                    // debugger
+              
 
-                // case 'favorite':
-                //     console.log("favorite")
-                //     break;
-
-                //     }    
+                    break;   
                 
         
                 // .catch(err => console.error(err))

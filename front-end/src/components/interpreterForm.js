@@ -10,9 +10,13 @@ class InterpreterForm {
         // const intForm = document.getElementById("form-container")
         // intForm.innerHTML = ""
         btn.addEventListener('click', this.addCreateForm)
+        //btn.classList.add("hidden")
     }
 
     addCreateForm() {
+        const btn = document.getElementById('new-int-btn')
+        btn.classList.add("hidden")
+
         const formContainer = document.getElementById("form-container");
         const form = document.createElement('form');
         form.id = "int-form"
@@ -77,6 +81,11 @@ class InterpreterForm {
 
 
      handleInterpreterClick(e) {
+        // const formContainer = document.getElementById("form-container");
+        // formContainer.classList.add("hidden")
+        // const newIntBtn = document.getElementById('new-int-btn')
+        // newIntBtn.classList.remove("hidden")
+
         const id = parseInt(e.target.previousElementSibling.dataset.set)
         const li = e.target.previousElementSibling
         // debugger

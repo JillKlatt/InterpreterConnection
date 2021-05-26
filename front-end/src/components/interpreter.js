@@ -1,4 +1,5 @@
 class Interpreter {
+    static all = []
     constructor({id, name, email, phone, notes, city_id, language_id}){
         this.id = id
         this.name = name
@@ -7,6 +8,8 @@ class Interpreter {
         this.notes = notes
         this.cityId = city_id
         this.languageId = language_id
+
+        Interpreter.all.push(this)
     }
 
 

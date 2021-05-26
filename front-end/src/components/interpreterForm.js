@@ -199,14 +199,20 @@ class InterpreterForm {
                     // debugger
 
                     const favoritesContainer = document.getElementById("favorites-container")
+
                     const ul = document.createElement("ul")
         
                     // debugger
-                    // let int = Interpreter.all.find(int => int.id === addId)
-                    // ul.id = int.id
-                    // ul.innerText = int.name
-                    // let infoDiv = document.createElement("div")
-                    // infoDiv.id = "info-div"
+                    let int = Interpreter.all.find(int => int.id === addId)
+                    ul.id = int.id
+                    ul.innerText = int.name
+                    const showMoreBtn = document.createElement("button")
+                    showMoreBtn.id = "#show-more-button"
+                    showMoreBtn.innerText = "Show Details"
+                    showMoreBtn.setAttribute("data-toggle", "modal")
+                    showMoreBtn.setAttribute("data-target", "#show-modal")
+                    let infoDiv = document.createElement("div")
+                    infoDiv.id = "info-div"
                     // const email = document.createElement("li")
                     // email.innerText = int.email
                     // const phone = document.createElement("li")
@@ -215,8 +221,8 @@ class InterpreterForm {
                     // notes.innerText = int.notes
                     // infoDiv.append(email, phone, notes)
                     // infoDiv.classList.add("hidden")
-                    // ul.appendChild(infoDiv)
-                    // favoritesContainer.append(ul)
+                    ul.append(infoDiv, showMoreBtn)
+                    favoritesContainer.append(ul)
                     // console.log(`Adding ${intName} to favorites`)
                     // alert(`Added ${intName} to favorites`)
                     //     // debugger
@@ -231,6 +237,37 @@ class InterpreterForm {
                 // .catch(err => console.error(err))
         }
     }
+
+    // displayPopUp() {
+    //     const modal = document.createElement("div")
+    //     modal.className = "modal"
+    //     modal.tabindex = "1"
+    //     modal.role = "dialog"
+    //     const modalDialog = document.createElement("div")
+    //     modalDialog.setAttribute("class", "modal-dialog")
+    //     // modalDialog.className("modal-dialog")
+    //     modalDialog.role = "document"
+    //     const modalContent = document.createElement("div")
+    //     modalContent.className = "modal-content"
+    //     const modalHeader = document.createElement('div')
+    //     modalHeader.className = "modal-title"
+    //     const modalTitle = document.createElement("h5")
+    //     modalTitle.className = "modal-title"
+    //     modalTitle.innerText = "Pop Up Test"
+
+    //     const closeBtn = document.createElement("button")
+    //     closeBtn.type = "button"
+    //     closeBtn.setAttribute("class", "close")
+    //     closeBtn.setAttribute("data-dismiss", "modal")
+    //     closeBtn.setAttribute("aria-label", "Close")
+
+    
+    //     modalHeader.append(modalTitle, closeBtn)
+    //     modalContent.append(modalHeader)
+    //     modalDialog.append(modalContent)
+    //     modal.append(modalDialog)
+    //     favoritesContainer.append(modal)
+    // }
 
     // handleFavorite(e) {
     //     console.log(e.target)

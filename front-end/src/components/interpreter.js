@@ -8,6 +8,7 @@ class Interpreter {
         this.notes = notes
         this.cityId = city_id
         this.languageId = language_id
+        //debugger
 
         Interpreter.all.push(this)
     }

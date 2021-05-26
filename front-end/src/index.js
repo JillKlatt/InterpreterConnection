@@ -3,6 +3,8 @@ const cityAdapter = new CityAdapter("http://localhost:3000")
 const languageAdapter = new LanguageAdapter("http://localhost:3000")
 const interpreterForm = new InterpreterForm
 let favorites = parseInt(localStorage.getItem("favorites")) || []
+let displayingFavorites = true
+let displayingInfo = false
 
 document.addEventListener("DOMContentLoaded", () => {
     cityAdapter.getCities();
@@ -62,53 +64,98 @@ function handleCreateInterpreter(e) {
     .catch(err => console.error("Catch Error:", err))
 }
 
+// function flipFavorites() {
+//     const btn = document.getElementById("display-favorites")
+//     const favoritesContainer = document.getElementById("favorite-interpreters-container")
 
+//     btn.addEventListener("click", () => {
+//         switch(displayFavorites)
+//     })
+// }
 
+///// CURRENTLY NOT WORKING ALL THE WAY
 function listenForFavorites() {
+    //favorites.forEach(fave => displayFavorites(fave))
     document.getElementById("display-favorites").addEventListener("click", displayFavoritesContainer)
 }
 
 function displayFavoritesContainer(e) {
     const btn = e.target
-
-    btn.innerText = "Hide My Faves"
     const favoritesContainer = document.getElementById("favorite-interpreters-container")
     // debugger
-    favoritesContainer.classList.remove("hidden")
-    // debugger
-    //let favoritesArray = 
-    favorites.forEach(fave => displayFavorites(fave))
-    // debugger
-    //ul.innerText = favoritesArray
-    // favoritesContainer.append(ul)
+    // favorites.forEach(fave => displayFavorites(fave))
+    switch (displayingFavorites) {
+        case true:
+            console.log("Showing Favorites")
+            btn.innerText = "Hide My Faves"
+
+            favoritesContainer.classList.remove("hidden")
+            displayingFavorites = false
+            // favorites.forEach(fave => displayFavorites(fave))
+            break;
+        case false:
+            btn.innerText = "Show My Faves"
+            favoritesContainer.classList.add("hidden")
+            displayingFavorites = true
+            break;
+        // debugger
+        //ul.innerText = favoritesArray
+        // favoritesContainer.append(ul)
+    }
 }
 
 function displayFavorites(fave){
+    const favoritesContainer = document.getElementById("favorites-container")
+    // favoritesContainer.clear
     const ul = document.createElement("ul")
     let int = Interpreter.all.find(int => int.id === fave)
     ul.id = int.id
-    ul.innerText += int.name
-    const favoritesContainer = document.getElementById("favorites-container")
+    ul.innerText = int.name
+    let infoDiv = document.createElement("div")
+    infoDiv.id = "info-div"
+    const email = document.createElement("ul")
+    email.innerText = int.email
+    const phone = document.createElement("ul")
+    phone.innerText = int.phone
+    const notes = document.createElement("ul")
+    notes.innerText = int.notes
+    infoDiv.append(email, phone, notes)
+    infoDiv.classList.add("hidden")
+    ul.appendChild(infoDiv)
     favoritesContainer.append(ul)
 }
 
 function listenforFaveClick() {
     const ul = document.getElementById("favorites-container")
+    let faveArray = favorites.forEach(fave => displayFavorites(fave))
+    debugger
+    ul.append(faveArray)
     ul.addEventListener("click", displayIntInfo)
-    //.addEventListener("click", displayFavoritesContainer)
 }
 
 function displayIntInfo(e){
-    // console.log(e.target)
-    // debugger
-    let int = Interpreter.all.find(int => int.id === parseInt(e.target.id))
-    const li = document.createElement("li")
-    li.innerText += int.email
-    li.innerText += int.phone
-    li.innerText += int.notes
-    //const int = document.createElement("li")
-    e.target.append(li)
-    console.log(int)
+    const btn = e.target
+    let infoDiv = document.getElementById("info-div")
+
+    e.target.append(infoDiv)
+    //console.log(int)
+
+    switch (displayingInfo){
+        case true: 
+        console.log("showing info")
+            infoDiv.classList.remove("hidden")
+            displayingInfo = false
+            break;
+
+        case false:
+            console.log("hiding info")
+            // let infoDisplay = document.getElementById("info-div")
+            // infoDisplay.classList.add("hidden")
+            // debugger
+            infoDiv.classList.add("hidden")
+            displayingInfo = true
+            break;
+    }
 }
 
     

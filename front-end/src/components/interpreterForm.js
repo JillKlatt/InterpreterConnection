@@ -33,6 +33,18 @@ class InterpreterForm {
         emailInput.id = 'email-input'
         emailInput.type = 'text'
         emailInput.name = 'email'
+        const phoneLabel = document.createElement('label')
+        phoneLabel.innerText = "Phone:"
+        const phoneInput = document.createElement('input')
+        phoneInput.id = 'phone-input'
+        phoneInput.type = 'text'
+        phoneInput.name = 'phone'
+        const notesLabel = document.createElement('label')
+        notesLabel.innerText = "Notes:"
+        const notesInput = document.createElement('input')
+        notesInput.id = 'notes-input'
+        notesInput.type = 'text'
+        notesInput.name = 'notes'
         const languageLabel = document.createElement('label')
         languageLabel.innerText = "Language:"
         // const languageInput = document.createElement('input')
@@ -81,7 +93,7 @@ class InterpreterForm {
         form.append(cityLabel)
         City.all.forEach(city => city.addCityToDom())
 
-        form.append(emailLabel, emailInput, intSubmit)
+        form.append(emailLabel, emailInput, phoneLabel, phoneInput, notesLabel, notesInput, intSubmit)
         form.addEventListener("submit", handleCreateInterpreter)
         // debugger
     }

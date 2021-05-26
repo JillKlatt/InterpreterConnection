@@ -104,26 +104,26 @@ function displayFavoritesContainer(e) {
     }
 }
 
-function displayFavorites(fave){
-    const favoritesContainer = document.getElementById("favorites-container")
-    // favoritesContainer.clear
-    const ul = document.createElement("ul")
-    let int = Interpreter.all.find(int => int.id === fave)
-    ul.id = int.id
-    ul.innerText = int.name
-    let infoDiv = document.createElement("div")
-    infoDiv.id = "info-div"
-    const email = document.createElement("ul")
-    email.innerText = int.email
-    const phone = document.createElement("ul")
-    phone.innerText = int.phone
-    const notes = document.createElement("ul")
-    notes.innerText = int.notes
-    infoDiv.append(email, phone, notes)
-    infoDiv.classList.add("hidden")
-    ul.appendChild(infoDiv)
-    favoritesContainer.append(ul)
-}
+// function displayFavorites(fave){
+//     // const favoritesContainer = document.getElementById("favorites-container")
+//     // // favoritesContainer.clear
+//     // const ul = document.createElement("ul")
+//     // let int = Interpreter.all.find(int => int.id === fave)
+//     // ul.id = int.id
+//     // ul.innerText = int.name
+//     // let infoDiv = document.createElement("div")
+//     // infoDiv.id = "info-div"
+//     // const email = document.createElement("ul")
+//     // email.innerText = int.email
+//     // const phone = document.createElement("ul")
+//     // phone.innerText = int.phone
+//     // const notes = document.createElement("ul")
+//     // notes.innerText = int.notes
+//     // infoDiv.append(email, phone, notes)
+//     // infoDiv.classList.add("hidden")
+//     // ul.appendChild(infoDiv)
+//     // favoritesContainer.append(ul)
+// }
 
 function listenforFaveClick() {
     const ul = document.getElementById("favorites-container")

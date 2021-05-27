@@ -171,7 +171,10 @@ class InterpreterForm {
                     let infoDiv = document.createElement("div")
                     infoDiv.id = "info-div"
                     ul.append(infoDiv, showMoreBtn)
-                    favoritesContainer.append(ul)            
+                    favoritesContainer.append(ul)
+                    //favorites.push(int.id)
+                    //localStorage.setItem("favorites", favorites)
+
 
                     break;   
         }

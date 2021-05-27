@@ -2,7 +2,7 @@ const interpreterAdapter = new InterpreterAdapter("http://localhost:3000")
 const cityAdapter = new CityAdapter("http://localhost:3000")
 const languageAdapter = new LanguageAdapter("http://localhost:3000")
 const interpreterForm = new InterpreterForm
-let favorites = parseInt(localStorage.getItem("favorites")) || []
+let favorites = JSON.parse(localStorage.getItem("favorites")) || []
 let displayingFavorites = true
 let displayingInfo = false
 
@@ -83,7 +83,7 @@ function displayFavoritesContainer(e) {
     const btn = e.target
     const favoritesContainer = document.getElementById("favorite-interpreters-container")
     // debugger
-    favorites.forEach(fave => displayFavorites(fave))
+    //favorites.forEach(fave => displayFavorites(fave))
     switch (displayingFavorites) {
         case true:
             console.log("Showing Favorites")
@@ -135,6 +135,10 @@ function listenforFaveClick() {
 }
 
 function displayPopUp(e) {
+    // debugger
+    const id = parseInt(e.target.parentElement.id)
+    // console.log(e.target.previousElementSibling.previousElementSibling)
+    let int = Interpreter.all.find(int => int.id = id)
     if (e.target = "show-more-button"){
     const favoritesContainer = document.getElementById("favorites-container")
     console.log("displaying pop up")
@@ -150,24 +154,31 @@ function displayPopUp(e) {
     const modalContent = document.createElement("div")
     modalContent.className = "modal-content"
     const modalHeader = document.createElement('div')
-    modalHeader.className = "modal-title"
+    modalHeader.className = "modal-header"
     const modalTitle = document.createElement("h5")
     modalTitle.className = "modal-title"
-    modalTitle.innerText = "Pop Up Test"
+    modalTitle.innerText = `${int.name}`
 
-    // const closeBtn = document.createElement("button")
-    // closeBtn.type = "button"
-    // closeBtn.id = "close-int-button"
-    // closeBtn.setAttribute("class", "close")
-    // closeBtn.setAttribute("data-dismiss", "modal")
-    // closeBtn.setAttribute("aria-label", "Close")
+    const closeBtn = document.createElement("button")
+    closeBtn.type = "button"
+    closeBtn.id = "close-int-button"
+    closeBtn.setAttribute("class", "close")
+    closeBtn.setAttribute("data-bs-dismiss", "modal")
+    closeBtn.setAttribute("label", "Close")
 
     const span = document.createElement("span")
-    //span.setAttribute("aria-hidden", "true")
+    span.setAttribute("aria-hidden", "true")
+    span.innerText = `X`
 
-    //closeBtn.append(span)
-    modalHeader.append(modalTitle, span)//, closeBtn)
-    modalContent.append(modalHeader)
+    closeBtn.append(span)
+    modalHeader.append(modalTitle, closeBtn)
+    
+    const modalBody = document.createElement('div')
+    modalBody.className = "modal-body"
+    modalBody.innerHTML = `<li> ${int.email} </li>`
+
+    
+    modalContent.append(modalHeader, modalBody)
     modalDialog.append(modalContent)
     modal.append(modalDialog)
     favoritesContainer.append(modal)

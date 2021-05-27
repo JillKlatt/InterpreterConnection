@@ -47,19 +47,9 @@ class InterpreterForm {
         notesInput.name = 'notes'
         const languageLabel = document.createElement('label')
         languageLabel.innerText = "Language:"
-        // const languageInput = document.createElement('input')
-
-        //const languageDropdown = document.getElementById("language-dropdown")
-        // const languageDropdown = document.createElement("select")
-        // languageDropdown.id = "language-dropdown"
-        // languageDropdown.name = "language"
         const languageDropdown = document.createElement("select")
         languageDropdown.id = "language-dropdown"
-        // langAdapter.getLanguages()
-        // debugger
 
-        // languageInput.type = 'text'
-        // languageInput.name = 'language_id'
         const cityLabel = document.createElement('label')
         cityLabel.innerText = "City:"
         // const cityInput = document.createElement('input')

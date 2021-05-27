@@ -64,18 +64,9 @@ function handleCreateInterpreter(e) {
     .catch(err => console.error("Catch Error:", err))
 }
 
-// function flipFavorites() {
-//     const btn = document.getElementById("display-favorites")
-//     const favoritesContainer = document.getElementById("favorite-interpreters-container")
-
-//     btn.addEventListener("click", () => {
-//         switch(displayFavorites)
-//     })
-// }
 
 ///// CURRENTLY NOT WORKING ALL THE WAY
 function listenForFavorites() {
-    //favorites.forEach(fave => displayFavorites(fave))
     document.getElementById("display-favorites").addEventListener("click", displayFavoritesContainer)
 }
 
@@ -83,7 +74,6 @@ function displayFavoritesContainer(e) {
     const btn = e.target
     const favoritesContainer = document.getElementById("favorite-interpreters-container")
     // debugger
-    //favorites.forEach(fave => displayFavorites(fave))
     switch (displayingFavorites) {
         case true:
             console.log("Showing Favorites")
@@ -91,7 +81,6 @@ function displayFavoritesContainer(e) {
 
             favoritesContainer.classList.remove("hidden")
             displayingFavorites = false
-            // favorites.forEach(fave => displayFavorites(fave))
             break;
         case false:
             btn.innerText = "Show My Faves"
@@ -99,8 +88,6 @@ function displayFavoritesContainer(e) {
             displayingFavorites = true
             break;
         // debugger
-        //ul.innerText = favoritesArray
-        // favoritesContainer.append(ul)
     }
 }
 

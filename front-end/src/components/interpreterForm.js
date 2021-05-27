@@ -68,16 +68,7 @@ class InterpreterForm {
         // const cityDropdown = document.getElementById("city-dropdown")
         const cityDropdown = document.createElement("select")
         cityDropdown.id = "city-dropdown"
-        // cityDropdown.name = "city"
-        // citAdapter.getCities()
-        // debugger
 
-
-        //const cityDropdown = document.getElementById("city-dropdown")
-        // const cityInput = document.createElement('option')
-        // // debugger
-        // cityInput.value = City.all.forEach(city => city.name)
-        // cityInput.innerText = City.all.forEach(city => city.id)
 
         const intSubmit = document.createElement('input')
         intSubmit.type = 'submit'
@@ -100,10 +91,6 @@ class InterpreterForm {
 
 
      handleInterpreterClick(e) {
-        // const formContainer = document.getElementById("form-container");
-        // formContainer.classList.add("hidden")
-        // const newIntBtn = document.getElementById('new-int-btn')
-        // newIntBtn.classList.remove("hidden")
 
         const id = parseInt(e.target.previousElementSibling.dataset.set)
         const li = e.target.previousElementSibling

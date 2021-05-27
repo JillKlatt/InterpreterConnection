@@ -209,8 +209,8 @@ class InterpreterForm {
                     const showMoreBtn = document.createElement("button")
                     showMoreBtn.id = "#show-more-button"
                     showMoreBtn.innerText = "Show Details"
-                    showMoreBtn.setAttribute("data-toggle", "modal")
-                    showMoreBtn.setAttribute("data-target", "#show-modal")
+                    showMoreBtn.setAttribute("data-bs-toggle", "modal")
+                    showMoreBtn.setAttribute("data-bs-target", "#show-modal")
                     let infoDiv = document.createElement("div")
                     infoDiv.id = "info-div"
                     // const email = document.createElement("li")

@@ -2,7 +2,9 @@ const interpreterAdapter = new InterpreterAdapter("http://localhost:3000")
 const cityAdapter = new CityAdapter("http://localhost:3000")
 const languageAdapter = new LanguageAdapter("http://localhost:3000")
 const interpreterForm = new InterpreterForm
-let favorites = JSON.parse(localStorage.getItem("favorites")) || []
+//let favorites = JSON.parse(localStorage.getItem("favorites")) || []
+let favorites = []
+// debugger
 let displayingFavorites = true
 let displayingInfo = false
 
@@ -19,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
 })
 
 
-
+// 5/28- Move to Interpreter Adapter
 function handleCreateInterpreter(e) {
     // debugger
     e.preventDefault()

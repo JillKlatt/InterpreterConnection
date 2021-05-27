@@ -7,10 +7,7 @@ class InterpreterForm {
 
     showCreateForm() {
         const btn = document.getElementById('new-int-btn')
-        // const intForm = document.getElementById("form-container")
-        // intForm.innerHTML = ""
         btn.addEventListener('click', this.addCreateForm)
-        //btn.classList.add("hidden")
     }
 
     addCreateForm() {
@@ -20,7 +17,6 @@ class InterpreterForm {
         const formContainer = document.getElementById("form-container");
         const form = document.createElement('form');
         form.id = "int-form"
-        // form.innerHTML = `<input placehold='name' name='name' label='name' type='text' /><br><input placehold='email' name= 'email' type='text' /><br><input value='Add New Interpreter' type='submit' />`
         const nameLabel = document.createElement('label')
         nameLabel.innerText = "Name:"
         const nameInput = document.createElement('input')

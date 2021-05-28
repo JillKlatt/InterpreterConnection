@@ -74,7 +74,7 @@ class InterpreterForm {
 
      handleInterpreterClick(e) {
 
-        const id = parseInt(e.target.previousElementSibling.dataset.set)
+        //const id = parseInt(e.target.previousElementSibling.dataset.set)
         const li = e.target.previousElementSibling
         // debugger
         const btn = e.target
@@ -82,6 +82,7 @@ class InterpreterForm {
         const action = e.target.dataset.action
             switch(action){ 
                 case "delete": 
+                const id = parseInt(e.target.previousElementSibling.dataset.set)
                 console.log("deleting")
                     // debugger
                     // delete this interpreter from backend
@@ -159,7 +160,7 @@ class InterpreterForm {
 
                     const ul = document.createElement("ul")
         
-                    // debugger
+                    // // debugger
                     let int = Interpreter.all.find(int => int.id === addId)
                     ul.id = int.id
                     ul.innerText = int.name
@@ -172,8 +173,19 @@ class InterpreterForm {
                     infoDiv.id = "info-div"
                     ul.append(infoDiv, showMoreBtn)
                     favoritesContainer.append(ul)
-                    //favorites.push(int.id)
-                    //localStorage.setItem("favorites", favorites)
+                    debugger
+                    let intIdToPush = parseInt(int.id)
+                    // debugger
+                    if (favorites.includes(intIdToPush)){
+                        localStorage.setItem("favorites", JSON.stringify(favorites))
+                    } else {
+                    favorites.push(intIdToPush)
+                    localStorage.setItem("favorites", JSON.stringify(favorites))
+                }
+
+                    console.log(favorites)
+ 
+                    console.log(localStorage)
 
 
                     break;   

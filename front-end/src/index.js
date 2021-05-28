@@ -98,9 +98,9 @@ function displayFavoritesContainer(e) {
 
 function displayFavorites(fave){
         const favoritesContainer = document.getElementById("favorites-container")
-        while (favoritesContainer.firstChild){
-            favoritesContainer.removeChild(favoritesContainer.lastChild)
-        }
+        // while (favoritesContainer.firstChild){
+        //     favoritesContainer.removeChild(favoritesContainer.lastChild)
+        // }
         const div = document.createElement("div")
 
         let int = Interpreter.all.find(int => int.id === fave)

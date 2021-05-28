@@ -2,13 +2,14 @@ const interpreterAdapter = new InterpreterAdapter("http://localhost:3000")
 const cityAdapter = new CityAdapter("http://localhost:3000")
 const languageAdapter = new LanguageAdapter("http://localhost:3000")
 const interpreterForm = new InterpreterForm
-//let favorites = JSON.parse(localStorage.getItem("favorites")) || []
-let favorites = []
+let favorites = JSON.parse(localStorage.getItem("favorites")) || []
+//let favorites = []
 // debugger
 let displayingFavorites = true
 let displayingInfo = false
 
 document.addEventListener("DOMContentLoaded", () => {
+    console.log(`Favorites Variable Array = ${favorites}`)
     cityAdapter.getCities();
 
     languageAdapter.getLanguages(); 
@@ -80,7 +81,9 @@ function displayFavoritesContainer(e) {
         case true:
             console.log("Showing Favorites")
             btn.innerText = "Hide My Faves"
-
+            // if (favorites == [])
+            //}
+            favorites.forEach(fave => displayFavorites(fave))
             favoritesContainer.classList.remove("hidden")
             displayingFavorites = false
             break;
@@ -93,26 +96,46 @@ function displayFavoritesContainer(e) {
     }
 }
 
-// function displayFavorites(fave){
-//     // const favoritesContainer = document.getElementById("favorites-container")
-//     // // favoritesContainer.clear
-//     // const ul = document.createElement("ul")
-//     // let int = Interpreter.all.find(int => int.id === fave)
-//     // ul.id = int.id
-//     // ul.innerText = int.name
-//     // let infoDiv = document.createElement("div")
-//     // infoDiv.id = "info-div"
-//     // const email = document.createElement("ul")
-//     // email.innerText = int.email
-//     // const phone = document.createElement("ul")
-//     // phone.innerText = int.phone
-//     // const notes = document.createElement("ul")
-//     // notes.innerText = int.notes
-//     // infoDiv.append(email, phone, notes)
-//     // infoDiv.classList.add("hidden")
-//     // ul.appendChild(infoDiv)
-//     // favoritesContainer.append(ul)
-// }
+function displayFavorites(fave){
+        const favoritesContainer = document.getElementById("favorites-container")
+        while (favoritesContainer.firstChild){
+            favoritesContainer.removeChild(favoritesContainer.lastChild)
+        }
+        const div = document.createElement("div")
+
+        let int = Interpreter.all.find(int => int.id === fave)
+        // debugger
+        div.id = int.id
+        div.innerText = int.name
+        const showMoreBtn = document.createElement("button")
+        showMoreBtn.id = "#show-more-button"
+        showMoreBtn.innerText = "Show Details"
+        showMoreBtn.setAttribute("data-bs-toggle", "modal")
+        showMoreBtn.setAttribute("data-bs-target", "#show-modal")
+        let infoDiv = document.createElement("div")
+        infoDiv.id = "info-div"
+        div.append(infoDiv, showMoreBtn)
+        favoritesContainer.append(div)
+// debugger    
+    // const favoritesContainer = document.getElementById("favorites-container")
+    // // favoritesContainer.clear
+    // const ul = document.createElement("ul")
+    // let int = Interpreter.all.find(int => int.id === fave)
+    // ul.id = int.id
+    // ul.innerText = int.name
+    // let infoDiv = document.createElement("div")
+    // infoDiv.id = "info-div"
+    // const email = document.createElement("ul")
+    // email.innerText = int.email
+    // const phone = document.createElement("ul")
+    // phone.innerText = int.phone
+    // const notes = document.createElement("ul")
+    // notes.innerText = int.notes
+    // infoDiv.append(email, phone, notes)
+    // infoDiv.classList.add("hidden")
+    // ul.appendChild(infoDiv)
+    // favoritesContainer.append(ul)
+}
 
 function listenforFaveClick() {
     const ul = document.getElementById("favorites-container")
@@ -126,6 +149,7 @@ function listenforFaveClick() {
 function displayPopUp(e) {
     // debugger
     const id = parseInt(e.target.parentElement.id)
+    // debugger
     // console.log(e.target.previousElementSibling.previousElementSibling)
     let int = Interpreter.all.find(int => int.id = id)
     if (e.target = "show-more-button"){

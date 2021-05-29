@@ -18,9 +18,12 @@ class Api::V1::InterpretersController < ApplicationController
       @interpreter = Interpreter.new(interpreter_params)
       # byebug
       if @interpreter.save
-        render json: @interpreter, status: :created#, location: @interpreter
+        render json: {status: 201, interpreter: @interpreter}, status: :created#, location: @interpreter
       else
-        render json: @interpreter.errors, status: :unprocessable_entity
+        render json: {
+          status: 422,
+          errors: @interpreter.errors.full_messages.join(", ")
+        }, status: :unprocessable_entity
       end
     end
   

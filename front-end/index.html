@@ -11,35 +11,33 @@
 <body>
   <div class="gradient-examples">
     <div class="example linear">
-    <h1>Interpreter Connection</h1>
-    <br>
-    <button id="display-favorites">Show My Faves</button>
-    <br>
-    <div id='all-interpreters-container'>
+      <h1 class="header block">Interpreter Connection</h1>
+      <br>
+      <button id="display-favorites" class="btn btn-dark">Show My Faves</button>
+      <br>
+      <div id='all-interpreters-container' class="block">
         <ul id="interpreters-container">
-    </div>
-    <div id='favorite-interpreters-container' class="hidden">
-      <div id="favorites-container">
-        Favorite Interpreters:
       </div>
-
+      <div id='favorite-interpreters-container' class="hidden">
+        <div id="favorites-container">
+          Favorite Interpreters:
         </div>
+      </div>
+      <br>
+      <button id='new-int-btn'  class="btn btn-secondary" type="button" >
+      <span>Add New Interpreter</span>
+      </button>
+    </div>
+      <div id= "form-container">
+      </div>
+  </div>
+  <br>
+  <br>        
+  <br>
+  <br>
 
-        <br>
-                <button id='new-int-btn' class="btn btn-primary" type="button" >
-                    <span>Add New Interpreter</span>
-                  </button>
-    
 
 
-                </div>
-            <div id= "form-container">
-
-            </div>
-          </div>
-        <br>
-        <br>        <br>
-        <br>
         <!--
         <h4>Formatting Options Down Here For Later</h4>
         <br>
@@ -84,8 +82,10 @@
             </div>
           </nav>
         -->
-    <script type="text/javascript" src="src/components/interpreterAdapter.js"></script>
+    
+
     <script type="text/javascript" src="src/components/cityAdapter.js"></script>
+    <script type="text/javascript" src="src/components/interpreterAdapter.js"></script>
     <script type="text/javascript" src="src/components/languageAdapter.js"></script>
     <script type="text/javascript" src="src/components/interpreter.js"></script>
 

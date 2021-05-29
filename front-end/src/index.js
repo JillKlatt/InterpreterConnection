@@ -60,12 +60,17 @@ function postNewInterp(e){
     fetch("http://localhost:3000/api/v1/interpreters", configObj)
     .then(resp => resp.json())
     .then(data => {
-        //Name your variables more useful information! What is i?
-        const newInterp = new Interpreter(data)
-        newInterp.addIntToDom()
+        if (data.status === 204){
+        const newInt = new Interpreter(data.interpreter)
+        newInt.addIntToDom()
         document.getElementById('name-input').value = ""
+        } else {
+            alert(data.errors)
+        }
     })
-    .catch(err => console.error("Catch Error:", err))
+    .catch(
+    err => {console.error("Catch Error:", err), alert(err)}
+    )
 }
 favsButton.addEventListener("click", toggleFavsDiv);
 

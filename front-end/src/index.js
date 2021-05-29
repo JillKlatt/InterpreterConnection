@@ -2,14 +2,22 @@ const interpreterAdapter = new InterpreterAdapter("http://localhost:3000")
 const cityAdapter = new CityAdapter("http://localhost:3000")
 const languageAdapter = new LanguageAdapter("http://localhost:3000")
 const interpreterForm = new InterpreterForm
-let favorites = JSON.parse(localStorage.getItem("favorites")) || []
-//let favorites = []
-// debugger
-let displayingFavorites = true
-let displayingInfo = false
+
+
+let localStoreArr = JSON.parse(localStorage.getItem("favorites"))
+let favsArray = (localStoreArr != null) ? localStoreArr : [];
+
+let displayFavorites = true
+// let displayingInfo = false
+
+let favoriteInterpContainer = document.getElementById("favorite-interpreters-container")
+const favoritesContainer = document.getElementById("favorites-container")
+const favsButton = document.querySelector('#display-favorites')
+// ​
+
 
 document.addEventListener("DOMContentLoaded", () => {
-    console.log(`Favorites Variable Array = ${favorites}`)
+    //console.log(`Favorites Variable Array = ${favorites}`)
     cityAdapter.getCities();
 
     languageAdapter.getLanguages(); 
@@ -17,27 +25,24 @@ document.addEventListener("DOMContentLoaded", () => {
     interpreterAdapter.getInterpreters();
     interpreterForm.showCreateForm();
     interpreterAdapter.listenforClick();
-    listenForFavorites();
-    listenforFaveClick();
+    // listenForFavorites();
+    // listenforFaveClick();
 })
 
-
-// 5/28- Move to Interpreter Adapter
 function handleCreateInterpreter(e) {
-    // debugger
     e.preventDefault()
-    // debugger
+    postNewInterp(e)
+}
+
+function postNewInterp(e){
+    //creates configObj for fetch req
     let nameInput = document.getElementById('name-input').value
     let languageInput = e.target.children[3].value
     let cityInput = e.target.children[5].value
     let emailInput = document.getElementById("email-input").value
     let phoneInput = document.getElementById("phone-input").value
     let notesInput = document.getElementById("notes-input").value
-    // debugger
-
-
-    // Acquired the input of our user, now send it to the backend
-    fetch("http://localhost:3000/api/v1/interpreters", {
+    const configObj={
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -50,91 +55,58 @@ function handleCreateInterpreter(e) {
             email: emailInput,
             phone: phoneInput,
             notes: notesInput
-        })   
-    })
+        })
+    } 
+    fetch("http://localhost:3000/api/v1/interpreters", configObj)
     .then(resp => resp.json())
-    
     .then(data => {
-        // debugger
-        console.log(data)
-        // debugger
-        // if (data.status === 201){
-            const i = new Interpreter(data)
-            // debugger
-            i.addIntToDom()
+        //Name your variables more useful information! What is i?
+        const newInterp = new Interpreter(data)
+        newInterp.addIntToDom()
         document.getElementById('name-input').value = ""
     })
     .catch(err => console.error("Catch Error:", err))
 }
+favsButton.addEventListener("click", toggleFavsDiv);
 
-
-///// CURRENTLY NOT WORKING ALL THE WAY
-function listenForFavorites() {
-    document.getElementById("display-favorites").addEventListener("click", displayFavoritesContainer)
-}
-
-function displayFavoritesContainer(e) {
-    const btn = e.target
-    const favoritesContainer = document.getElementById("favorite-interpreters-container")
-    // debugger
-    switch (displayingFavorites) {
+function toggleFavsDiv(e) {    
+    switch (displayFavorites) {
         case true:
             console.log("Showing Favorites")
-            btn.innerText = "Hide My Faves"
-            // if (favorites == [])
-            //}
-            favorites.forEach(fave => displayFavorites(fave))
-            favoritesContainer.classList.remove("hidden")
-            displayingFavorites = false
+            favsButton.innerText = "Hide My Faves"
+            populateFavs(favsArray)
+            favoriteInterpContainer.classList.remove("hidden")
+            displayFavorites = false
             break;
         case false:
-            btn.innerText = "Show My Faves"
-            favoritesContainer.classList.add("hidden")
-            displayingFavorites = true
+            favsButton.innerText = "Show My Faves"
+            favoriteInterpContainer.classList.add("hidden")
+            displayFavorites = true
             break;
-        // debugger
     }
 }
 
-function displayFavorites(fave){
-        const favoritesContainer = document.getElementById("favorites-container")
-        // while (favoritesContainer.firstChild){
-        //     favoritesContainer.removeChild(favoritesContainer.lastChild)
-        // }
-        const div = document.createElement("div")
-
-        let int = Interpreter.all.find(int => int.id === fave)
-        // debugger
-        div.id = int.id
-        div.innerText = int.name
+//if the favsArray could actually be an array of objects with the interp data in them, this might be even easier...
+function populateFavs(favsArray){
+    while (favoritesContainer.firstChild){
+        favoritesContainer.removeChild(favoritesContainer.lastChild)
+    }
+    for(let i=0; i<favsArray.length; i++){
+        let int = Interpreter.all.find(int => int.id === favsArray[i])
+        const favDiv = document.createElement("div")
+        // favDiv.innerText = favsArray[i]
+        favDiv.innerText = int.name
         const showMoreBtn = document.createElement("button")
-        showMoreBtn.id = "#show-more-button"
+        showMoreBtn.setAttribute("class", "btn btn-secondary")
+        showMoreBtn.id = "#show-more-button btn-sm"
         showMoreBtn.innerText = "Show Details"
         showMoreBtn.setAttribute("data-bs-toggle", "modal")
         showMoreBtn.setAttribute("data-bs-target", "#show-modal")
         let infoDiv = document.createElement("div")
         infoDiv.id = "info-div"
-        div.append(infoDiv, showMoreBtn)
-        favoritesContainer.append(div)
-// debugger    
-    // const favoritesContainer = document.getElementById("favorites-container")
-    // // favoritesContainer.clear
-    // const ul = document.createElement("ul")
-    // let int = Interpreter.all.find(int => int.id === fave)
-    // ul.id = int.id
-    // ul.innerText = int.name
-    // let infoDiv = document.createElement("div")
-    // infoDiv.id = "info-div"
-    // const email = document.createElement("ul")
-    // email.innerText = int.email
-    // const phone = document.createElement("ul")
-    // phone.innerText = int.phone
-    // const notes = document.createElement("ul")
-    // notes.innerText = int.notes
-    // infoDiv.append(email, phone, notes)
-    // infoDiv.classList.add("hidden")
-    // ul.appendChild(infoDiv)
-    // favoritesContainer.append(ul)
+        favDiv.append(infoDiv, showMoreBtn)
+        favoritesContainer.append(favDiv)
+    }
 }
 
 function listenforFaveClick() {
@@ -185,12 +157,11 @@ function displayPopUp(e) {
 
     closeBtn.append(span)
     modalHeader.append(modalTitle, closeBtn)
-    
+
     const modalBody = document.createElement('div')
     modalBody.className = "modal-body"
     modalBody.innerHTML = `<li> ${int.email} </li>`
 
-    
     modalContent.append(modalHeader, modalBody)
     modalDialog.append(modalContent)
     modal.append(modalDialog)
@@ -198,31 +169,3 @@ function displayPopUp(e) {
     // debugger
     }
 }
-
-// function displayIntInfo(e){
-//     const btn = e.target
-//     let infoDiv = document.getElementById("info-div")
-//     // Still appending this info every time
-
-//    //e.target.append(infoDiv)
-//     //console.log(int)
-
-//     switch (displayingInfo){
-//         case true: 
-//         console.log("showing info")
-//             infoDiv.classList.remove("hidden")
-//             displayingInfo = false
-//             break;
-
-//         case false:
-//             console.log("hiding info")
-//             // let infoDisplay = document.getElementById("info-div")
-//             // infoDisplay.classList.add("hidden")
-//             // debugger
-//             infoDiv.classList.add("hidden")
-//             displayingInfo = true
-//             break;
-//     }
-
-
-    

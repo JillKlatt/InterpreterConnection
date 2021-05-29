@@ -19,28 +19,47 @@ class InterpreterForm {
         form.id = "int-form"
         const nameLabel = document.createElement('label')
         nameLabel.innerText = "Name:"
+
+        const nameGroup = document.createElement('div')
+        nameGroup.setAttribute("class", "form-group")
         const nameInput = document.createElement('input')
         nameInput.id = 'name-input'
         nameInput.type = 'text'
         nameInput.name = 'name'
+
+        nameGroup.append(nameLabel, nameInput)
+
+        const emailGroup = document.createElement('div')
+        emailGroup.setAttribute("class", "form-group")
         const emailLabel = document.createElement('label')
         emailLabel.innerText = "Email:"
         const emailInput = document.createElement('input')
         emailInput.id = 'email-input'
         emailInput.type = 'text'
         emailInput.name = 'email'
+        emailGroup.append(emailLabel, emailInput)
+
+
+        const phoneGroup = document.createElement('div')
+        phoneGroup.setAttribute("class", "form-group")
         const phoneLabel = document.createElement('label')
         phoneLabel.innerText = "Phone:"
         const phoneInput = document.createElement('input')
         phoneInput.id = 'phone-input'
         phoneInput.type = 'text'
         phoneInput.name = 'phone'
+        phoneGroup.append(phoneLabel, phoneInput)
+
+        const notesGroup = document.createElement('div')
+        notesGroup.setAttribute("class", "form-group")
         const notesLabel = document.createElement('label')
         notesLabel.innerText = "Notes:"
         const notesInput = document.createElement('input')
         notesInput.id = 'notes-input'
         notesInput.type = 'text'
         notesInput.name = 'notes'
+        notesGroup.append(notesLabel, notesInput)
+
         const languageLabel = document.createElement('label')
         languageLabel.innerText = "Language:"
         const languageDropdown = document.createElement("select")
@@ -57,7 +76,7 @@ class InterpreterForm {
         intSubmit.type = 'submit'
         intSubmit.value = 'Create New Interpreter'
  
-        form.append(nameLabel, nameInput, languageLabel)
+        form.append(nameGroup, languageLabel)
 
         formContainer.append(form)
 
@@ -66,7 +85,7 @@ class InterpreterForm {
         form.append(cityLabel)
         City.all.forEach(city => city.addCityToDom())
 
-        form.append(emailLabel, emailInput, phoneLabel, phoneInput, notesLabel, notesInput, intSubmit)
+        form.append(emailGroup, phoneGroup, notesGroup, intSubmit)
         form.addEventListener("submit", handleCreateInterpreter)
         // debugger
     }
@@ -166,6 +185,7 @@ class InterpreterForm {
                     ul.innerText = int.name
                     const showMoreBtn = document.createElement("button")
                     showMoreBtn.id = "#show-more-button"
+                    showMoreBtn.setAttribute("class", "btn btn-secondary")
                     showMoreBtn.innerText = "Show Details"
                     showMoreBtn.setAttribute("data-bs-toggle", "modal")
                     showMoreBtn.setAttribute("data-bs-target", "#show-modal")
@@ -176,14 +196,14 @@ class InterpreterForm {
                     debugger
                     let intIdToPush = parseInt(int.id)
                     // debugger
-                    if (favorites.includes(intIdToPush)){
-                        localStorage.setItem("favorites", JSON.stringify(favorites))
+                    if (favsArray.includes(intIdToPush)){
+                        localStorage.setItem("favorites", JSON.stringify(favsArray))
                     } else {
-                    favorites.push(intIdToPush)
-                    localStorage.setItem("favorites", JSON.stringify(favorites))
+                    favsArray.push(intIdToPush)
+                    localStorage.setItem("favorites", JSON.stringify(favsArray))
                 }
 
-                    console.log(favorites)
+                    //console.log(favorites)
  
                     console.log(localStorage)
 

@@ -60,6 +60,7 @@ class InterpreterForm {
         notesInput.name = 'notes'
         notesGroup.append(notesLabel, notesInput)
 
+        
         const languageLabel = document.createElement('label')
         languageLabel.innerText = "Language:"
         const languageDropdown = document.createElement("select")

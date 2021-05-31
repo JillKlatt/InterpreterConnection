@@ -1,24 +1,39 @@
-# README
+Jill Klatt Flatiron Phase 4 JS Project
+# Interpreter Connection
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+ 
+## Basic Character, Campaign, and Weapon Creation at Your Fingertips! 
 
-Things you may want to cover:
+ 
+### Install Instructions:
+Fork and clone this repo
+<br />
+Navigate to back-end
+<br />
+Run ```bundle install``` to install necessary gems
+<br />
+Run ```rails db:seed``` to create Cities, Languages, and default Interpreters
+<br />
+Run ```rails s``` to launch the backend API server
+<br />
+Navigate to front-end
+<br />
+Run ```live-server``` 
+<br>
+#### (Please note, this will naviagate your page to http://127.0.0.1:8080, please change it to localhost:8080 to continue)
 
-* Ruby version
+### Sample Demo Video:
+A brief description of this program's capabilities is available [here](https://youtu.be/qRRlDL4sV_s)
+ 
+### Contributor Guide
+Bug reports and inquiries are welcome at: https://github.com/JillKlatt/InterpreterConnection
 
-* System dependencies
+#### Seed information pulled from: 
+[Cities](https://www.moving.com/tips/the-top-10-largest-us-cities-by-population/)
+and [Languages](https://bilingualkidspot.com/2019/07/13/languages-spoken-usa/)
 
-* Configuration
+### Code of Conduct
+[CODE-OF-CONDUCT](https://github.com/JillKlatt/InterpreterConnection/blob/main/CODE-OF-CONDUCT.md)
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### License information
+[MIT LICENSE](https://github.com/JillKlatt/InterpreterConnection/blob/main/LICENSE)

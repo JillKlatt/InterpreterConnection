@@ -31,6 +31,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function handleCreateInterpreter(e) {
     e.preventDefault()
+    const intForm = document.getElementById('int-form')
+    intForm.classList.add("hidden")
+    const newIntButton = document.getElementById('new-int-btn')
+    newIntButton.classList.remove("hidden")
     postNewInterp(e)
 }
 
@@ -64,6 +68,10 @@ function postNewInterp(e){
         const newInt = new Interpreter(data.interpreter)
         newInt.addIntToDom()
         document.getElementById('name-input').value = ""
+        document.getElementById('email-input').value = ""
+        document.getElementById('phone-input').value = ""
+        document.getElementById('notes-input').value = ""
+
         } else {
             alert(data.errors)
         }
@@ -118,9 +126,6 @@ function populateFavs(favsArray){
 function listenforFaveClick() {
     const favesContainer = document.getElementById("favorites-container")
     //const showMoreBtn = document.getElementById("show-more-button")
-    // favorites.forEach(fave => displayFavorites(fave))
-    //right here: we don't have any favorites to display
-    // debugger
     favesContainer.addEventListener("click", displayPopUp)
 }
 
@@ -148,7 +153,9 @@ function displayPopUp(e) {
     modalHeader.className = "modal-header"
     const modalTitle = document.createElement("h5")
     modalTitle.className = "modal-title"
+    modalTitle.classList.add("popup")
     modalTitle.innerText = `${int.name}`
+    console.log(modalTitle.innerText)
 
     const closeBtn = document.createElement("button")
     closeBtn.type = "button"
@@ -167,7 +174,7 @@ function displayPopUp(e) {
     const modalBody = document.createElement('div')
     modalBody.className = "modal-body"
     //modalBody.classList.add("class", "header")
-    modalBody.innerHTML = `<li> ${int.email} </li><li> ${int.phone}</li><li> ${int.notes}</li>`
+    modalBody.innerHTML = `<li class="popup"> ${int.email} </li><li class="popup"> ${int.phone}</li><li class="popup"> ${int.notes}</li>`
 
     modalContent.append(modalHeader, modalBody)
     modalDialog.append(modalContent)

@@ -60,5 +60,5 @@ FRIDAY TO DO:
 [ ] Fix display more options to reach correct id
     Need to grab id upon click
 [ ] Check event listeners to make sure they're looking for the right places
-[ ] Remove id from localStorage favorites if the int is deleted 
+[X] Remove id from localStorage favorites if the int is deleted 
 

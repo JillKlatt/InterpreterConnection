@@ -130,9 +130,9 @@ function listenforFaveClick() {
 }
 
 function displayPopUp(e) {
-    // debugger
+    // 
     const id = parseInt(e.target.parentElement.id)
-    // debugger
+    // 
     // console.log(e.target.previousElementSibling.previousElementSibling)
     let int = Interpreter.all.find(int => int.id = id)
     if (e.target = "show-more-button"){
@@ -180,6 +180,6 @@ function displayPopUp(e) {
     modalDialog.append(modalContent)
     modal.append(modalDialog)
     favoritesContainer.append(modal)
-    // debugger
+    // 
     }
 }

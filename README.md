@@ -16,14 +16,14 @@ Run ```rails db:seed``` to create Cities, Languages, and default Interpreters
 <br />
 Run ```rails s``` to launch the backend API server
 <br />
-Navigate to front-end
+Create a second terminal and navigate to front-end
 <br />
 Run ```live-server``` 
 <br>
 #### (Please note, this will naviagate your page to http://127.0.0.1:8080, please change it to localhost:8080 to continue)
 
 ### Sample Demo Video:
-A brief description of this program's capabilities is available [here](https://youtu.be/qRRlDL4sV_s)
+A brief description of this program's capabilities is available [here](https://www.youtube.com/watch?v=wp_YVFNdPhA&ab_channel=JillKlatt)
  
 ### Contributor Guide
 Bug reports and inquiries are welcome at: https://github.com/JillKlatt/InterpreterConnection

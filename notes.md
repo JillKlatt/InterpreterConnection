@@ -53,6 +53,12 @@ FRIDAY TO DO:
 [ ] Create new branch for display options
 [X] Video 
 [X] Add seed default interpreters
-[ ] Backend readme
-[ ] Front end readme
+[X] Backend readme
+[X] Front end readme
+
+6/2:
+[ ] Fix display more options to reach correct id
+    Need to grab id upon click
+[ ] Check event listeners to make sure they're looking for the right places
+[ ] Remove id from localStorage favorites if the int is deleted 
 

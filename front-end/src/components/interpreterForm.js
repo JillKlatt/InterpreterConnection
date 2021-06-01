@@ -1,5 +1,3 @@
-
-
 const langAdapter = new LanguageAdapter("http://localhost:3000")
 const citAdapter = new CityAdapter("http://localhost:3000")
 
@@ -60,7 +58,7 @@ class InterpreterForm {
         notesInput.name = 'notes'
         notesGroup.append(notesLabel, notesInput)
 
-        
+
         const languageLabel = document.createElement('label')
         languageLabel.innerText = "Language:"
         const languageDropdown = document.createElement("select")
@@ -76,7 +74,7 @@ class InterpreterForm {
         const intSubmit = document.createElement('input')
         intSubmit.type = 'submit'
         intSubmit.value = 'Create New Interpreter'
- 
+
         form.append(nameGroup, languageLabel)
 
         formContainer.append(form)
@@ -88,51 +86,61 @@ class InterpreterForm {
 
         form.append(emailGroup, phoneGroup, notesGroup, intSubmit)
         form.addEventListener("submit", handleCreateInterpreter)
-        //  
+            //  
     }
 
 
-     handleInterpreterClick(e) {
+    handleInterpreterClick(e) {
 
         //const id = parseInt(e.target.previousElementSibling.dataset.set)
         const li = e.target.previousElementSibling
-        //  
+            //  
         const btn = e.target
         const likeBtn = e.target.nextElementSibling
         const action = e.target.dataset.action
-            switch(action){ 
-                case "delete": 
+        switch (action) {
+            case "delete":
                 const id = parseInt(e.target.previousElementSibling.dataset.set)
+                    // cycles through favorites, looks for the id in localStorage, if it exists, removes it
+                if (favsArray.includes(id)) {
+                    for (let i = 0; i < favsArray.length; i++) {
+                        if (favsArray[i] === id) {
+                            favsArray.splice(i, 1);
+                        }
+                    }
+                }
+                //console.log(favsArray)
                 console.log("deleting")
                     //  
                     // delete this interpreter from backend
                     //  
-                    fetch(`http://localhost:3000/api/v1/interpreters/${id}`, {
-                    // console.log(id)
-                    method: "DELETE",
+                fetch(`http://localhost:3000/api/v1/interpreters/${id}`, {
+                        // console.log(id)
+                        method: "DELETE",
                     })
                     .then(resp => {
-            
+
                         console.log(resp)
                         return resp.json()
                     })
                     .then(data => {
                         //  
                         // if (data.status === 204) {
-                            // e.target.previousElementSibling.dataset.remove
+                        // e.target.previousElementSibling.dataset.remove
                         // }
                         // console.log(data)
                         //  
-                        if (data.message === "Successfully deleted"){
+                        if (data.message === "Successfully deleted") {
                             console.log(li)
                             li.remove()
                             btn.remove()
                             likeBtn.remove()
-          
+
                         } else {
                             alert(data.message)
-                        }})
-                    break;
+                        }
+                    })
+                break;
 
                 // case 'edit':
                 //     console.log("editing")
@@ -152,7 +160,7 @@ class InterpreterForm {
                 //     })
                 //     })
                 //     .then(resp => {
-            
+
                 //         console.log(resp)
                 //         return resp.json()
                 //     })
@@ -167,50 +175,50 @@ class InterpreterForm {
                 //     .catch(err => console.error("Catch Error:", err))
 
 
-                    break;
-                
-                case 'favorite':
-                    //  
+                break;
 
-                    const addId = parseInt(e.target.previousElementSibling.previousElementSibling.dataset.set)
+            case 'favorite':
+                //  
 
-                    const intName = e.target.previousElementSibling.previousElementSibling.children[0].innerText
-                    alert(`Added ${intName} to favorites!`)
+                const addId = parseInt(e.target.previousElementSibling.previousElementSibling.dataset.set)
 
-                    const favoritesContainer = document.getElementById("favorites-container")
+                const intName = e.target.previousElementSibling.previousElementSibling.children[0].innerText
+                alert(`Added ${intName} to favorites!`)
 
-                    const ul = document.createElement("ul")
-        
-                    // //  
-                    let int = Interpreter.all.find(int => int.id === addId)
-                    ul.id = int.id
-                    ul.innerText = int.name
-                    const showMoreBtn = document.createElement("button")
-                    showMoreBtn.id = "#show-more-button"
-                    showMoreBtn.setAttribute("class", "btn btn-secondary")
-                    showMoreBtn.innerText = "Show Details"
-                    showMoreBtn.setAttribute("data-bs-toggle", "modal")
-                    showMoreBtn.setAttribute("data-bs-target", "#show-modal")
-                    let infoDiv = document.createElement("div")
-                    infoDiv.id = "info-div"
-                    ul.append(infoDiv, showMoreBtn)
-                    favoritesContainer.append(ul)
+                const favoritesContainer = document.getElementById("favorites-container")
+
+                const ul = document.createElement("ul")
+
+                // //  
+                let int = Interpreter.all.find(int => int.id === addId)
+                ul.id = int.id
+                ul.innerText = int.name
+                const showMoreBtn = document.createElement("button")
+                showMoreBtn.id = "#show-more-button"
+                showMoreBtn.setAttribute("class", "btn btn-secondary")
+                showMoreBtn.innerText = "Show Details"
+                showMoreBtn.setAttribute("data-bs-toggle", "modal")
+                showMoreBtn.setAttribute("data-bs-target", "#show-modal")
+                let infoDiv = document.createElement("div")
+                infoDiv.id = "info-div"
+                ul.append(infoDiv, showMoreBtn)
+                favoritesContainer.append(ul)
                     //  er
-                    let intIdToPush = parseInt(int.id)
+                let intIdToPush = parseInt(int.id)
                     //  er
-                    if (favsArray.includes(intIdToPush)){
-                        localStorage.setItem("favorites", JSON.stringify(favsArray))
-                    } else {
+                if (favsArray.includes(intIdToPush)) {
+                    localStorage.setItem("favorites", JSON.stringify(favsArray))
+                } else {
                     favsArray.push(intIdToPush)
                     localStorage.setItem("favorites", JSON.stringify(favsArray))
                 }
 
-                    //console.log(favorites)
- 
-                    console.log(localStorage)
+                //console.log(favorites)
+
+                console.log(localStorage)
 
 
-                    break;   
+                break;
         }
     }
 

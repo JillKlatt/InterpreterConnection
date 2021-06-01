@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
     interpreterForm.showCreateForm();
     interpreterAdapter.listenforClick();
     // listenForFavorites();
-    // listenforFaveClick();
+    listenforFaveClick();
 })
 
 function handleCreateInterpreter(e) {
@@ -37,8 +37,8 @@ function handleCreateInterpreter(e) {
 function postNewInterp(e){
     //creates configObj for fetch req
     let nameInput = document.getElementById('name-input').value
-    let languageInput = e.target.children[3].value
-    let cityInput = e.target.children[5].value
+    let languageInput = document.getElementById('language-dropdown').value
+    let cityInput = document.getElementById('city-dropdown').value
     let emailInput = document.getElementById("email-input").value
     let phoneInput = document.getElementById("phone-input").value
     let notesInput = document.getElementById("notes-input").value
@@ -60,7 +60,7 @@ function postNewInterp(e){
     fetch("http://localhost:3000/api/v1/interpreters", configObj)
     .then(resp => resp.json())
     .then(data => {
-        if (data.status === 204){
+        if (data.status === 201){
         const newInt = new Interpreter(data.interpreter)
         newInt.addIntToDom()
         document.getElementById('name-input').value = ""
@@ -101,6 +101,7 @@ function populateFavs(favsArray){
         const favDiv = document.createElement("div")
         // favDiv.innerText = favsArray[i]
         favDiv.innerText = int.name
+        favDiv.id = int.id
         const showMoreBtn = document.createElement("button")
         showMoreBtn.setAttribute("class", "btn btn-secondary")
         showMoreBtn.id = "#show-more-button btn-sm"
@@ -115,12 +116,12 @@ function populateFavs(favsArray){
 }
 
 function listenforFaveClick() {
-    const ul = document.getElementById("favorites-container")
-    const showMoreBtn = document.getElementById("show-more-button")
+    const favesContainer = document.getElementById("favorites-container")
+    //const showMoreBtn = document.getElementById("show-more-button")
     // favorites.forEach(fave => displayFavorites(fave))
     //right here: we don't have any favorites to display
     // debugger
-    ul.addEventListener("click", displayPopUp)
+    favesContainer.addEventListener("click", displayPopUp)
 }
 
 function displayPopUp(e) {
@@ -165,7 +166,8 @@ function displayPopUp(e) {
 
     const modalBody = document.createElement('div')
     modalBody.className = "modal-body"
-    modalBody.innerHTML = `<li> ${int.email} </li>`
+    //modalBody.classList.add("class", "header")
+    modalBody.innerHTML = `<li> ${int.email} </li><li> ${int.phone}</li><li> ${int.notes}</li>`
 
     modalContent.append(modalHeader, modalBody)
     modalDialog.append(modalContent)

@@ -81,14 +81,14 @@ class InterpreterForm {
 
         formContainer.append(form)
 
-        // debugger
+        //  
         Language.all.forEach(language => language.addLanguageToDom())
         form.append(cityLabel)
         City.all.forEach(city => city.addCityToDom())
 
         form.append(emailGroup, phoneGroup, notesGroup, intSubmit)
         form.addEventListener("submit", handleCreateInterpreter)
-        // debugger
+        //  
     }
 
 
@@ -96,7 +96,7 @@ class InterpreterForm {
 
         //const id = parseInt(e.target.previousElementSibling.dataset.set)
         const li = e.target.previousElementSibling
-        // debugger
+        //  
         const btn = e.target
         const likeBtn = e.target.nextElementSibling
         const action = e.target.dataset.action
@@ -104,9 +104,9 @@ class InterpreterForm {
                 case "delete": 
                 const id = parseInt(e.target.previousElementSibling.dataset.set)
                 console.log("deleting")
-                    // debugger
+                    //  
                     // delete this interpreter from backend
-                    // debugger
+                    //  
                     fetch(`http://localhost:3000/api/v1/interpreters/${id}`, {
                     // console.log(id)
                     method: "DELETE",
@@ -117,12 +117,12 @@ class InterpreterForm {
                         return resp.json()
                     })
                     .then(data => {
-                        // debugger
+                        //  
                         // if (data.status === 204) {
                             // e.target.previousElementSibling.dataset.remove
                         // }
                         // console.log(data)
-                        // debugger
+                        //  
                         if (data.message === "Successfully deleted"){
                             console.log(li)
                             li.remove()
@@ -137,9 +137,9 @@ class InterpreterForm {
                 // case 'edit':
                 //     console.log("editing")
                 //     let nameInput = document.getElementById('name-input').value
-                //     // debugger
+                //     //  
                 //     // edit and post this interpreter from backend
-                //     // debugger
+                //     //  
                 //     fetch(`http://localhost:3000/api/v1/interpreters/${id}`, {
                 //     // console.log(id)
                 //     method: "PATCH",
@@ -157,12 +157,12 @@ class InterpreterForm {
                 //         return resp.json()
                 //     })
                 //     .then(data => {
-                //         // debugger
+                //         //  
                 //         console.log(data)
-                //         // debugger
+                //         //  
                 //         // if (data.status === 201){
                 //             const i = new Interpreter(data)
-                //             // debugger
+                //             //  
                 //             i.addIntToDom()})
                 //     .catch(err => console.error("Catch Error:", err))
 
@@ -170,17 +170,18 @@ class InterpreterForm {
                     break;
                 
                 case 'favorite':
-                    // debugger
+                    //  
 
                     const addId = parseInt(e.target.previousElementSibling.previousElementSibling.dataset.set)
 
                     const intName = e.target.previousElementSibling.previousElementSibling.children[0].innerText
+                    alert(`Added ${intName} to favorites!`)
 
                     const favoritesContainer = document.getElementById("favorites-container")
 
                     const ul = document.createElement("ul")
         
-                    // // debugger
+                    // //  
                     let int = Interpreter.all.find(int => int.id === addId)
                     ul.id = int.id
                     ul.innerText = int.name
@@ -194,9 +195,9 @@ class InterpreterForm {
                     infoDiv.id = "info-div"
                     ul.append(infoDiv, showMoreBtn)
                     favoritesContainer.append(ul)
-                    debugger
+                    //  er
                     let intIdToPush = parseInt(int.id)
-                    // debugger
+                    //  er
                     if (favsArray.includes(intIdToPush)){
                         localStorage.setItem("favorites", JSON.stringify(favsArray))
                     } else {

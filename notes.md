@@ -49,8 +49,10 @@ FRIDAY TO DO:
 [X] Add alert for issues
 
 5/31:
-[ ] Readme
+[X] Readme
 [ ] Create new branch for display options
-[ ] Video 
-[ ] Add seed default interpreters
+[X] Video 
+[X] Add seed default interpreters
+[ ] Backend readme
+[ ] Front end readme
 

@@ -5,7 +5,7 @@ const interpreterForm = new InterpreterForm
 
 if (localStorage.favorites === ""){ localStorage.removeItem("favorites")}
 let localStoreArr = JSON.parse(localStorage.getItem("favorites"))
-let favsArray = (localStoreArr != null ) ? localStoreArr : []; 
+let favsArray = (localStoreArr != null) ? localStoreArr : []; 
 
 let displayFavorites = true
 

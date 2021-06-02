@@ -17,6 +17,7 @@ class Interpreter {
         const interpreterContainer = document.getElementById('interpreters-container');
         const interpreterCity = City.all.find(city => city.id === parseInt(`${this.cityId}`)).name
         const interpreterLanguage = Language.all.find(language => language.id === parseInt(`${this.languageId}`)).name
+        // debugger
         const dataId = this.id
         const deleteIntBtn = document.createElement('button')
         deleteIntBtn.innerText = "X"

@@ -101,8 +101,7 @@ function populateFavs(favsArray) {
     for (let i = 0; i < favsArray.length; i++) {
         let int = Interpreter.all.find(int => int.id === favsArray[i])
         let favDiv = document.createElement("div")
-        debugger
-        // favDiv.innerText = int.name
+        favDiv.innerText = int.name
         favDiv.id = int.id
         const showMoreBtn = document.createElement("button")
         showMoreBtn.setAttribute("class", "btn btn-secondary")
@@ -129,7 +128,7 @@ function displayPopUp(e) {
     let int = Interpreter.all.find(int => int.id === id)
     if (e.target = "show-more-button") {
         const favoritesContainer = document.getElementById("favorites-container")
-        console.log("displaying pop up")
+        //console.log("displaying pop up")
         const modal = document.createElement("div")
 
         modal.className = "modal"

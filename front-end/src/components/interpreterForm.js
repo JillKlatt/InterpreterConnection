@@ -108,7 +108,13 @@ class InterpreterForm {
                             favsArray.splice(i, 1);
                         }
                     }
-                    localStorage.setItem("favorites", favsArray)
+                    
+                    if (favsArray != null) {
+                        localStorage.setItem("favorites", favsArray)
+                    } else {
+                        localStorage.setItem("favorites", [])
+                    }
+                    // find a way to remove fave from dom if deleted and faves are shown
                 }
                 console.log("deleting")
                     // delete this interpreter from backend
@@ -206,4 +212,13 @@ class InterpreterForm {
         }
     }
 
+
+    removeIntFromFavesDom(id){
+        // find int div from fave int container and remove
+        //let id = 
+        let int = Interpreter.find(int => int.id = id)
+
+        favDiv = document.getElementById(id)
+        console.log(favDiv)
+    }
 }

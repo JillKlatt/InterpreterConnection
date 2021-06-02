@@ -109,11 +109,8 @@ class InterpreterForm {
                         }
                     }
                 }
-                //console.log(favsArray)
                 console.log("deleting")
-                    //  
                     // delete this interpreter from backend
-                    //  
                 fetch(`http://localhost:3000/api/v1/interpreters/${id}`, {
                         // console.log(id)
                         method: "DELETE",
@@ -124,12 +121,6 @@ class InterpreterForm {
                         return resp.json()
                     })
                     .then(data => {
-                        //  
-                        // if (data.status === 204) {
-                        // e.target.previousElementSibling.dataset.remove
-                        // }
-                        // console.log(data)
-                        //  
                         if (data.message === "Successfully deleted") {
                             console.log(li)
                             li.remove()
@@ -141,7 +132,7 @@ class InterpreterForm {
                         }
                     })
                 break;
-
+                
                 // case 'edit':
                 //     console.log("editing")
                 //     let nameInput = document.getElementById('name-input').value
@@ -178,7 +169,7 @@ class InterpreterForm {
                 break;
 
             case 'favorite':
-                //  
+
 
                 const addId = parseInt(e.target.previousElementSibling.previousElementSibling.dataset.set)
 
@@ -189,7 +180,7 @@ class InterpreterForm {
 
                 const ul = document.createElement("ul")
 
-                // //  
+
                 let int = Interpreter.all.find(int => int.id === addId)
                 ul.id = int.id
                 ul.innerText = int.name
@@ -203,21 +194,13 @@ class InterpreterForm {
                 infoDiv.id = "info-div"
                 ul.append(infoDiv, showMoreBtn)
                 favoritesContainer.append(ul)
-                    //  er
                 let intIdToPush = parseInt(int.id)
-                    //  er
                 if (favsArray.includes(intIdToPush)) {
                     localStorage.setItem("favorites", JSON.stringify(favsArray))
                 } else {
                     favsArray.push(intIdToPush)
                     localStorage.setItem("favorites", JSON.stringify(favsArray))
                 }
-
-                //console.log(favorites)
-
-                console.log(localStorage)
-
-
                 break;
         }
     }

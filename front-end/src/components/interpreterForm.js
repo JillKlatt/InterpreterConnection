@@ -92,7 +92,7 @@ class InterpreterForm {
 
     handleInterpreterClick(e) {
 
-        //const id = parseInt(e.target.previousElementSibling.dataset.set)
+
         const li = e.target.previousElementSibling
             //  
         const btn = e.target
@@ -108,6 +108,7 @@ class InterpreterForm {
                             favsArray.splice(i, 1);
                         }
                     }
+                    localStorage.setItem("favorites", favsArray)
                 }
                 console.log("deleting")
                     // delete this interpreter from backend

@@ -13,13 +13,9 @@ class CityAdapter {
     .then(data => {
         data.forEach(function(city){
             const c = new City(city)
-            // 
-            //c.addCityToDom()
-  
-            // cityContainer.innerHTML += `<li>${city.name}</li>`
+
         })
     })
-    // .then(data => console.log(data))
     .catch(error => console.error(error))
     }
 

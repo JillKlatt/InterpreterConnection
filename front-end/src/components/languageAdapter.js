@@ -13,10 +13,8 @@ class LanguageAdapter {
     .then(data => {
         data.forEach(function(lang){
             const l = new Language(lang)
-            // l.addLanguageToDom()
         })
     })
-    // .then(data => console.log(data))
     .catch(error => console.error(error))
 }
 

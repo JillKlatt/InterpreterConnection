@@ -3,9 +3,9 @@ const cityAdapter = new CityAdapter("http://localhost:3000")
 const languageAdapter = new LanguageAdapter("http://localhost:3000")
 const interpreterForm = new InterpreterForm
 
-
+if (localStorage.favorites === ""){ localStorage.removeItem("favorites")}
 let localStoreArr = JSON.parse(localStorage.getItem("favorites"))
-let favsArray = (localStoreArr != null) ? localStoreArr : [];
+let favsArray = (localStoreArr != null ) ? localStoreArr : []; 
 
 let displayFavorites = true
 

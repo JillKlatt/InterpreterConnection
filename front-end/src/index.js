@@ -94,7 +94,6 @@ function toggleFavesDiv(e) {
     }
 }
 
-//if the favsArray could actually be an array of objects with the interp data in them, this might be even easier...
 function populateFavs(favsArray) {
     while (favoritesContainer.firstChild) {
         favoritesContainer.removeChild(favoritesContainer.lastChild)
@@ -102,7 +101,6 @@ function populateFavs(favsArray) {
     for (let i = 0; i < favsArray.length; i++) {
         let int = Interpreter.all.find(int => int.id === favsArray[i])
         const favDiv = document.createElement("div")
-            // favDiv.innerText = favsArray[i]
         favDiv.innerText = int.name
         favDiv.id = int.id
         const showMoreBtn = document.createElement("button")
@@ -125,10 +123,7 @@ function listenforFaveClick() {
 }
 
 function displayPopUp(e) {
-    // 
     const id = parseInt(e.target.parentElement.id)
-        // 
-        // console.log(e.target.previousElementSibling.previousElementSibling)
     let int = Interpreter.all.find(int => int.id = id)
     if (e.target = "show-more-button") {
         const favoritesContainer = document.getElementById("favorites-container")
@@ -168,13 +163,11 @@ function displayPopUp(e) {
 
         const modalBody = document.createElement('div')
         modalBody.className = "modal-body"
-            //modalBody.classList.add("class", "header")
         modalBody.innerHTML = `<li class="popup"> ${int.email} </li><li class="popup"> ${int.phone}</li><li class="popup"> ${int.notes}</li>`
 
         modalContent.append(modalHeader, modalBody)
         modalDialog.append(modalContent)
         modal.append(modalDialog)
         favoritesContainer.append(modal)
-            // 
     }
 }

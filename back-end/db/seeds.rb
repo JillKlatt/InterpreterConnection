@@ -51,8 +51,8 @@ Interpreter.create({
     email: "jill@gmail.com", 
     phone: "123-456-7891", 
     notes: "Nice Gal", 
-    city_id: 1, 
-    language_id: 1
+    city_id: 2, 
+    language_id: 2
 })
 5.times do
     Interpreter.create({
@@ -63,3 +63,5 @@ Interpreter.create({
         "city_id" => Faker::Number.between(from: 1, to: 16), 
         "language_id" => Faker::Number.between(from: 1, to: 14)
     })
+
+end

@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     interpreterForm.showCreateForm();
     interpreterAdapter.listenforClick();
-    listenforFaveClick();
+    favoritesAdapter.listenforFaveClick();
 })
 
 favsButton.addEventListener("click", favoritesAdapter.toggleFavesDiv);
@@ -53,11 +53,6 @@ function populateFaves(favesArray) {
     }
 }
 
-function listenforFaveClick() {
-    const favesContainer = document.getElementById("favorites-container")
-        //const showMoreBtn = document.getElementById("show-more-button")
-    favesContainer.addEventListener("click", displayPopUp)
-}
 
 function displayPopUp(e) {
     // debugger

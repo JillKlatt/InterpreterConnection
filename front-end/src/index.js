@@ -12,7 +12,7 @@ let displayFavorites = true
 
 let favoriteInterpContainer = document.getElementById("favorite-interpreters-container")
 const favoritesContainer = document.getElementById("favorites-container")
-const favsButton = document.querySelector('#display-favorites')
+const favesButton = document.querySelector('#display-favorites')
 
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
     favoritesAdapter.listenforFaveClick();
 })
 
-favsButton.addEventListener("click", favoritesAdapter.toggleFavesDiv);
+favesButton.addEventListener("click", favoritesAdapter.toggleFavesDiv);
 
 
 
@@ -55,7 +55,6 @@ function populateFaves(favesArray) {
 
 
 function displayPopUp(e) {
-    // debugger
     const id = parseInt(e.target.parentElement.id)
     let int = Interpreter.all.find(int => int.id === id)
     if (e.target = "show-more-button") {

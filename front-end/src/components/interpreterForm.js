@@ -61,15 +61,9 @@ class InterpreterForm {
 
         const languageLabel = document.createElement('label')
         languageLabel.innerText = "Language:"
-        const languageDropdown = document.createElement("select")
-        languageDropdown.id = "language-dropdown"
 
         const cityLabel = document.createElement('label')
         cityLabel.innerText = "City:"
-
-        const cityDropdown = document.createElement("select")
-        cityDropdown.id = "city-dropdown"
-
 
         const intSubmit = document.createElement('input')
         intSubmit.type = 'submit'
@@ -79,14 +73,14 @@ class InterpreterForm {
 
         formContainer.append(form)
 
-        //  
+        
         Language.all.forEach(language => language.addLanguageToDom())
         form.append(cityLabel)
         City.all.forEach(city => city.addCityToDom())
 
         form.append(emailGroup, phoneGroup, notesGroup, intSubmit)
         form.addEventListener("submit", handleCreateInterpreter)
-            //  
+    
     }
 
 

@@ -6,7 +6,7 @@ const favoritesAdapter = new FavoritesAdapter
 
 if (localStorage.favorites === ""){ localStorage.removeItem("favorites")}
 let localStoreArr = JSON.parse(localStorage.getItem("favorites"))
-let favsArray = (localStoreArr != null) ? localStoreArr : []; 
+let favesArray = (localStoreArr != null) ? localStoreArr : []; 
 
 let displayFavorites = true
 
@@ -31,12 +31,12 @@ favsButton.addEventListener("click", favoritesAdapter.toggleFavesDiv);
 
 
 
-function populateFavs(favsArray) {
+function populateFaves(favesArray) {
     while (favoritesContainer.firstChild) {
         favoritesContainer.removeChild(favoritesContainer.lastChild)
     }
-    for (let i = 0; i < favsArray.length; i++) {
-        let int = Interpreter.all.find(int => int.id === favsArray[i])
+    for (let i = 0; i < favesArray.length; i++) {
+        let int = Interpreter.all.find(int => int.id === favesArray[i])
         let favDiv = document.createElement("div")
         favDiv.innerText = int.name
         favDiv.id = int.id

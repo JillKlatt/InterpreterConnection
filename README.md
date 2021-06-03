@@ -12,6 +12,8 @@ Navigate to back-end
 <br />
 Run ```bundle install``` to install necessary gems
 <br />
+Run ```rails db:migrate``` to create your backend tables
+<br />
 Run ```rails db:seed``` to create Cities, Languages, and default Interpreters
 <br />
 Run ```rails s``` to launch the backend API server

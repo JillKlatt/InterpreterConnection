@@ -79,7 +79,7 @@ class InterpreterForm {
         City.all.forEach(city => city.addCityToDom())
 
         form.append(emailGroup, phoneGroup, notesGroup, intSubmit)
-        form.addEventListener("submit", handleCreateInterpreter)
+        form.addEventListener("submit", interpreterAdapter.handleCreateInterpreter)
     
     }
 

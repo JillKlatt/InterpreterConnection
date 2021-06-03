@@ -2,6 +2,7 @@ const interpreterAdapter = new InterpreterAdapter("http://localhost:3000")
 const cityAdapter = new CityAdapter("http://localhost:3000")
 const languageAdapter = new LanguageAdapter("http://localhost:3000")
 const interpreterForm = new InterpreterForm
+const favoritesAdapter = new FavoritesAdapter
 
 if (localStorage.favorites === ""){ localStorage.removeItem("favorites")}
 let localStoreArr = JSON.parse(localStorage.getItem("favorites"))
@@ -20,79 +21,30 @@ document.addEventListener("DOMContentLoaded", () => {
     languageAdapter.getLanguages();
 
     interpreterAdapter.getInterpreters();
+
     interpreterForm.showCreateForm();
     interpreterAdapter.listenforClick();
     listenforFaveClick();
 })
 
-function handleCreateInterpreter(e) {
-    e.preventDefault()
-    const intForm = document.getElementById('int-form')
-    intForm.classList.add("hidden")
-    const newIntButton = document.getElementById('new-int-btn')
-    newIntButton.classList.remove("hidden")
-    postNewInterp(e)
-}
+favsButton.addEventListener("click", favoritesAdapter.toggleFavesDiv);
 
-function postNewInterp(e) {
-    let nameInput = document.getElementById('name-input').value
-    let languageInput = document.getElementById('language-dropdown').value
-    let cityInput = document.getElementById('city-dropdown').value
-    let emailInput = document.getElementById("email-input").value
-    let phoneInput = document.getElementById("phone-input").value
-    let notesInput = document.getElementById("notes-input").value
-    const newIntObj = {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-            "Accept": "application/json"
-        },
-        body: JSON.stringify({
-            name: nameInput,
-            language_id: languageInput,
-            city_id: cityInput,
-            email: emailInput,
-            phone: phoneInput,
-            notes: notesInput
-        })
-    }
-    fetch("http://localhost:3000/api/v1/interpreters", newIntObj)
-        .then(resp => resp.json())
-        .then(data => {
-            if (data.status === 201) {
-                const newInt = new Interpreter(data.interpreter)
-                newInt.addIntToDom()
-                document.getElementById('name-input').value = ""
-                document.getElementById('email-input').value = ""
-                document.getElementById('phone-input').value = ""
-                document.getElementById('notes-input').value = ""
-
-            } else {
-                alert(data.errors)
-            }
-        })
-        .catch(
-            err => { console.error("Catch Error:", err), alert(err) }
-        )
-}
-favsButton.addEventListener("click", toggleFavesDiv);
-
-function toggleFavesDiv(e) {
-    switch (displayFavorites) {
-        case true:
-            console.log("Showing Favorites")
-            favsButton.innerText = "Hide My Faves"
-            populateFavs(favsArray)
-            favoriteInterpContainer.classList.remove("hidden")
-            displayFavorites = false
-            break;
-        case false:
-            favsButton.innerText = "Show My Faves"
-            favoriteInterpContainer.classList.add("hidden")
-            displayFavorites = true
-            break;
-    }
-}
+// function toggleFavesDiv(e) {
+//     switch (displayFavorites) {
+//         case true:
+//             console.log("Showing Favorites")
+//             favsButton.innerText = "Hide My Faves"
+//             populateFavs(favsArray)
+//             favoriteInterpContainer.classList.remove("hidden")
+//             displayFavorites = false
+//             break;
+//         case false:
+//             favsButton.innerText = "Show My Faves"
+//             favoriteInterpContainer.classList.add("hidden")
+//             displayFavorites = true
+//             break;
+//     }
+// }
 
 function populateFavs(favsArray) {
     while (favoritesContainer.firstChild) {

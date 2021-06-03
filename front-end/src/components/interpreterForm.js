@@ -96,15 +96,15 @@ class InterpreterForm {
             case "delete":
                 const id = parseInt(e.target.previousElementSibling.dataset.set)
                     // cycles through favorites, looks for the id in localStorage, if it exists, removes it
-                if (favsArray.includes(id)) {
-                    for (let i = 0; i < favsArray.length; i++) {
-                        if (favsArray[i] === id) {
-                            favsArray.splice(i, 1);
+                if (favesArray.includes(id)) {
+                    for (let i = 0; i < favesArray.length; i++) {
+                        if (favesArray[i] === id) {
+                            favesArray.splice(i, 1);
                         }
                     }
                     
-                    if (favsArray != null) {
-                        localStorage.setItem("favorites", favsArray)
+                    if (favesArray != null) {
+                        localStorage.setItem("favorites", favesArray)
                     } else {
                         localStorage.setItem("favorites", [])
                     }
@@ -196,11 +196,11 @@ class InterpreterForm {
                 ul.append(infoDiv, showMoreBtn)
                 favoritesContainer.append(ul)
                 let intIdToPush = parseInt(int.id)
-                if (favsArray.includes(intIdToPush)) {
-                    localStorage.setItem("favorites", JSON.stringify(favsArray))
+                if (favesArray.includes(intIdToPush)) {
+                    localStorage.setItem("favorites", JSON.stringify(favesArray))
                 } else {
-                    favsArray.push(intIdToPush)
-                    localStorage.setItem("favorites", JSON.stringify(favsArray))
+                    favesArray.push(intIdToPush)
+                    localStorage.setItem("favorites", JSON.stringify(favesArray))
                 }
                 break;
         }

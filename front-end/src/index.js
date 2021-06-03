@@ -119,25 +119,19 @@ function populateFavs(favsArray) {
 function listenforFaveClick() {
     const favesContainer = document.getElementById("favorites-container")
         //const showMoreBtn = document.getElementById("show-more-button")
-    favesContainer.addEventListener("click", displayPopUp)
+    favesContainer.addEventListener("click", createPopUpModal)
 }
 
-function displayPopUp(e) {
-    // debugger
+function createPopUpModal(e){
+    const favoritesContainer = document.getElementById("favorites-container")
     const id = parseInt(e.target.parentElement.id)
-    let int = Interpreter.all.find(int => int.id === id)
+    const int = Interpreter.all.find(int => int.id === id)
     if (e.target = "show-more-button") {
-        const favoritesContainer = document.getElementById("favorites-container")
-        //console.log("displaying pop up")
         const modal = document.createElement("div")
-
-        modal.className = "modal"
         modal.id = "show-modal"
-        modal.tabindex = "-1"
-        modal.role = "dialog"
         const modalDialog = document.createElement("div")
         modalDialog.setAttribute("class", "modal-dialog")
-        modalDialog.role = "document"
+
         const modalContent = document.createElement("div")
         modalContent.className = "modal-content"
         const modalHeader = document.createElement('div')
@@ -145,8 +139,6 @@ function displayPopUp(e) {
         const modalTitle = document.createElement("h5")
         modalTitle.className = "modal-title"
         modalTitle.classList.add("popup")
-            if (int != null){
-        modalTitle.innerText = `${int.name}`}
 
         const closeBtn = document.createElement("button")
         closeBtn.type = "button"
@@ -164,13 +156,37 @@ function displayPopUp(e) {
 
         const modalBody = document.createElement('div')
         modalBody.className = "modal-body"
-                if (int != null){
-                    modalBody.innerHTML = `<li class="popup"> ${int.email} </li><li class="popup"> ${int.phone}</li><li class="popup"> ${int.notes}</li>`
-                }
 
         modalContent.append(modalHeader, modalBody)
         modalDialog.append(modalContent)
         modal.append(modalDialog)
         favoritesContainer.append(modal)
+    displayPopUp(int)
+}
+
+function displayPopUp(int) {
+    // debugger
+    // const id = parseInt(e.target.parentElement.id)
+    // let int = Interpreter.all.find(int => int.id === id)
+    const favoritesContainer = document.getElementById("favorites-container")
+    console.log("displaying pop up")
+    const modal = document.getElementById("show-modal")
+    modal.className = "modal"
+    modal.tabindex = "-1"
+    modal.role = "dialog"
+
+
+    const modalTitle = document.getElementsByClassName("modal-title")
+    modalTitle.innerText = `${int.name}`
+    const modalBody = document.getElementsByClassName("modal-body")
+    modalBody.innerHTML = `<li class="popup"> ${int.email} </li><li class="popup"> ${int.phone}</li><li class="popup"> ${int.notes}</li>`
+    const modalDialog = document.getElementsByClassName("modal-dialog")
+    modalDialog.role = "document"
+
+    const modalContent = document.getElementsByClassName("modal-content")
+
+    const modalHeader = document.getElementsByClassName("modal-header")
+
+
     }
 }

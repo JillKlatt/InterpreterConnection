@@ -174,3 +174,8 @@ function displayPopUp(e) {
         favoritesContainer.append(modal)
     }
 }
+
+
+
+
+

@@ -4,7 +4,6 @@ class CityAdapter {
 
     constructor(baseURL){
         this.baseCityURL = `${baseURL}/api/v1/cities`
-        this.cityDropDown = document.getElementById('city-dropdown')
     }
 
     getCities(){

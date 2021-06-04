@@ -6,42 +6,42 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Language.create(name: "Alienese")
-Language.create(name: "American Sign Language")
-Language.create(name: "Arabic")
-Language.create(name: "Dothraki")
-Language.create(name: "English")
-Language.create(name: "French")
-Language.create(name: "German")
-Language.create(name: "Hindi")
-Language.create(name: "Japanese")
-Language.create(name: "Klingon")
-Language.create(name: "Mandarin")
-Language.create(name: "Portuguese")
-Language.create(name: "Russian")
-Language.create(name: "Spanish")
-# Total Languages: 14
+# Language.create(name: "Alienese")
+# Language.create(name: "American Sign Language")
+# Language.create(name: "Arabic")
+# Language.create(name: "Dothraki")
+# Language.create(name: "English")
+# Language.create(name: "French")
+# Language.create(name: "German")
+# Language.create(name: "Hindi")
+# Language.create(name: "Japanese")
+# Language.create(name: "Klingon")
+# Language.create(name: "Mandarin")
+# Language.create(name: "Portuguese")
+# Language.create(name: "Russian")
+# Language.create(name: "Spanish")
+# # Total Languages: 14
 
 
 
 
 
-City.create(name: "Chicago")
-City.create(name: "Cleveland")
-City.create(name: "Columbus")
-City.create(name: "Denver")
-City.create(name: "Dictionopolis")
-City.create(name: "Houston")
-City.create(name: "Kansas City")
-City.create(name: "Las Vegas")
-City.create(name: "Los Angeles")
-City.create(name: "New York")
-City.create(name: "Phandelver")
-City.create(name: "Phoenix")
-City.create(name: "San Antonio")
-City.create(name: "San Diego")
-City.create(name: "Westeros")
-# Total cities: 16
+# City.create(name: "Chicago")
+# City.create(name: "Cleveland")
+# City.create(name: "Columbus")
+# City.create(name: "Denver")
+# City.create(name: "Dictionopolis")
+# City.create(name: "Houston")
+# City.create(name: "Kansas City")
+# City.create(name: "Las Vegas")
+# City.create(name: "Los Angeles")
+# City.create(name: "New York")
+# City.create(name: "Phandelver")
+# City.create(name: "Phoenix")
+# City.create(name: "San Antonio")
+# City.create(name: "San Diego")
+# City.create(name: "Westeros")
+# # Total cities: 16
 
 
 

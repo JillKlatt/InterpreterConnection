@@ -40,20 +40,26 @@ function populateFaves(favesArray) {
         let favDiv = document.createElement("div")
         favDiv.innerText = int.name
         favDiv.id = int.id
-        const showMoreBtn = document.createElement("button")
-        showMoreBtn.setAttribute("class", "btn btn-secondary")
-        showMoreBtn.id = "#show-more-button btn-sm"
-        showMoreBtn.innerText = "Show Details"
-        showMoreBtn.setAttribute("data-bs-toggle", "modal")
-        showMoreBtn.setAttribute("data-bs-target", "#show-modal")
+        const ul = document.createElement("ul")
+        ul.innerHTML = 
+            `<li>Phone: ${int.phone}</li>
+            <li>Email: ${int.email}</li>
+            <li>Notes: ${int.notes}</li>`
+        // 6/4- Modal still throwing error // Removed for assessment (sub in ul of info)
+        // const showMoreBtn = document.createElement("button")
+        // showMoreBtn.setAttribute("class", "btn btn-secondary")
+        // showMoreBtn.id = "#show-more-button btn-sm"
+        // showMoreBtn.innerText = "Show Details"
+        // showMoreBtn.setAttribute("data-bs-toggle", "modal")
+        // showMoreBtn.setAttribute("data-bs-target", "#show-modal")
         let infoDiv = document.createElement("div")
         infoDiv.id = "info-div"
-        favDiv.append(infoDiv, showMoreBtn)
+        favDiv.append(infoDiv, ul)//, showMoreBtn)
         favoritesContainer.append(favDiv)
     }
 }
 
-
+// 6/4- Modal still throwing error // Removed for assessment
 function displayPopUp(e) {
     const id = parseInt(e.target.parentElement.id)
     let int = Interpreter.all.find(int => int.id === id)

@@ -185,15 +185,15 @@ class InterpreterForm {
                 let int = Interpreter.all.find(int => int.id === addId)
                 ul.id = int.id
                 ul.innerText = int.name
-                const showMoreBtn = document.createElement("button")
-                showMoreBtn.id = "#show-more-button"
-                showMoreBtn.setAttribute("class", "btn btn-secondary")
-                showMoreBtn.innerText = "Show Details"
-                showMoreBtn.setAttribute("data-bs-toggle", "modal")
-                showMoreBtn.setAttribute("data-bs-target", "#show-modal")
+                // const showMoreBtn = document.createElement("button")
+                // showMoreBtn.id = "#show-more-button"
+                // showMoreBtn.setAttribute("class", "btn btn-secondary")
+                // showMoreBtn.innerText = "Show Details"
+                // showMoreBtn.setAttribute("data-bs-toggle", "modal")
+                // showMoreBtn.setAttribute("data-bs-target", "#show-modal")
                 let infoDiv = document.createElement("div")
                 infoDiv.id = "info-div"
-                ul.append(infoDiv, showMoreBtn)
+                ul.append(infoDiv) //, showMoreBtn)
                 favoritesContainer.append(ul)
                 let intIdToPush = parseInt(int.id)
                 if (favesArray.includes(intIdToPush)) {
